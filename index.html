@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Глэмпинг «Тишина» — А-фрейм дома у реки Дон · Воронеж</title>
+<meta name="description" content="Глэмпинг «Тишина» — просторные А-фрейм дома в 10 минутах от Воронежа, у реки Дон. Банный чан, костровая зона, шашлык. Отдых на природе с городским комфортом.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:#0a0a0f;color:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+
+/* ===== header ===== */
+header{position:sticky;top:0;z-index:50;background:rgba(10,10,15,.8);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
+.header-in{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;letter-spacing:-.3px}
+.logo svg{display:block}
+.logo em{font-style:normal;color:#f97316}
+.header-right{display:flex;align-items:center;gap:12px}
+.header-phone{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.18);color:#fff;font-weight:700;font-size:14px;padding:10px 18px;border-radius:10px;transition:all .15s}
+.header-phone:hover{border-color:#f97316;color:#f97316}
+.header-phone svg{display:block}
+
+/* ===== hero ===== */
+.hero{position:relative;padding:96px 0 88px;overflow:hidden}
+.hero::before{content:'';position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.22),transparent 65%);top:-340px;right:-200px;filter:blur(10px)}
+.hero::after{content:'';position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.12),transparent 60%);bottom:-300px;left:-160px;filter:blur(10px)}
+.hero-dots{position:absolute;top:40px;left:0;right:0;height:100%;pointer-events:none;opacity:.5;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(180deg,rgba(0,0,0,.6),transparent 45%)}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:8px;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);color:#fbbf24;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;margin-bottom:26px}
+.tag::before{content:'';width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 12px #34d399}
+.hero h1{font-size:50px;line-height:1.08;font-weight:900;letter-spacing:-1.5px}
+.hero h1 span{background:linear-gradient(135deg,#fbbf24,#f97316);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{margin-top:20px;font-size:18px;color:#a1a1aa;max-width:560px}
+.hero-sub b{color:#fff}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.badge{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:9px 16px;border-radius:12px;font-size:13.5px;color:#d4d4d8}
+.badge b{color:#fff}
+.cta-row{display:flex;align-items:center;gap:16px;margin-top:36px;flex-wrap:wrap}
+.btn{display:inline-block;background:linear-gradient(135deg,#f59e0b,#f97316);color:#0a0a0f;font-weight:800;font-size:17px;padding:17px 32px;border-radius:14px;box-shadow:0 10px 40px rgba(249,115,22,.35);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.18);color:#fff;box-shadow:none}
+.btn.ghost:hover{border-color:#f97316;color:#f97316}
+.note{font-size:13.5px;color:#71717a}
+.hero-media{position:relative}
+.hero-media img{width:100%;border-radius:20px;display:block;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.hero-media .corner{position:absolute;width:26px;height:26px;border:3px solid #f97316}
+.hero-media .corner.tl{top:-8px;left:-8px;border-right:none;border-bottom:none;border-radius:8px 0 0 0}
+.hero-media .corner.br{bottom:-8px;right:-8px;border-left:none;border-top:none;border-radius:0 0 8px 0}
+.hero-media-cap{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:#71717a}
+.hero-media-cap b{color:#d4d4d8;font-weight:600}
+
+/* ===== pains ===== */
+.pains{background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:88px 0}
+.pains h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
+.sec-intro{font-size:17px;color:#a1a1aa;max-width:620px;margin-bottom:44px}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pain{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:border-color .2s}
+.pain-img{object-fit:cover;display:block;width:calc(100% + 48px);margin:-24px -24px 18px;height:168px}
+.pain::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#f97316,transparent);opacity:0;transition:opacity .2s}
+.pain:hover{border-color:rgba(249,115,22,.45)}
+.pain:hover::before{opacity:1}
+.pain-num{font-size:12px;font-weight:800;color:#f97316;letter-spacing:1.5px;margin-bottom:10px}
+.pain h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.pain p{font-size:14px;color:#a1a1aa}
+
+/* ===== how (features) ===== */
+.how{padding:88px 0}
+.how h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
+.ch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+.ch{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:24px;border-top:3px solid #f97316;position:relative;overflow:hidden}
+.ch-img{object-fit:cover;display:block;width:calc(100% + 48px);margin:-24px -24px 18px;height:220px}
+.ch h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.ch p{font-size:14.5px;color:#a1a1aa}
+.div-note{margin-top:26px;background:linear-gradient(135deg,#1a1a1d,#141416);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:24px 26px;font-size:15.5px;color:#e2e8f0}
+.div-note b{color:#fbbf24}
+
+/* ===== steps ===== */
+.steps{padding:88px 0;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.steps h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
+.step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.cta-center{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:36px;text-align:center}
+.step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:22px}
+.step-num{font-size:12px;font-weight:800;color:#f97316;letter-spacing:1.5px}
+.step h3{font-size:16.5px;font-weight:700;margin:8px 0 8px}
+.step p{font-size:14px;color:#a1a1aa}
+
+/* ===== how-work ===== */
+.how-work{padding:88px 0}
+.how-work h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
+.hw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.hw{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:24px;position:relative;overflow:hidden}
+.hw-icon{width:46px;height:46px;border-radius:13px;background:rgba(249,115,22,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.hw-icon svg{width:24px;height:24px;stroke:#f97316;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hw-num{font-size:12px;font-weight:800;color:#f97316;letter-spacing:1.5px;margin-bottom:10px}
+.hw h3{font-size:16.5px;font-weight:700;margin-bottom:8px}
+.hw p{font-size:14px;color:#a1a1aa}
+
+/* ===== why ===== */
+.why{padding:88px 0;background:linear-gradient(135deg,#141416,#1a1a1d)}
+.why h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
+.why .sec-intro{color:#94a3b8}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.why-col{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:26px;position:relative;overflow:hidden}
+.why-col h3{font-size:18px;font-weight:800;margin-bottom:14px}
+.why-col ul{list-style:none}
+.why-col li{padding:9px 0 9px 26px;position:relative;font-size:15px;color:#e2e8f0}
+.why-col li::before{content:"✕";position:absolute;left:0;top:9px;color:#f87171;font-weight:800}
+.why-col.good li::before{content:"✓";color:#34d399}
+.why-big{margin-top:22px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.4);border-radius:16px;padding:26px}
+.why-big h3{color:#fbbf24;font-size:20px;font-weight:800;margin-bottom:10px}
+.why-big p{font-size:15.5px;color:#e2e8f0}
+
+/* ===== gallery ===== */
+.gallery{padding:88px 0;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.gallery h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.gal{position:relative;overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.09);height:260px}
+.gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.gal:hover img{transform:scale(1.06)}
+
+/* ===== faq ===== */
+.faq{padding:88px 0;background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.05)}
+.faq h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
+details{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;margin-top:10px;padding:16px 20px}
+summary{font-weight:700;font-size:16px;cursor:pointer;color:#fff}
+summary::marker{color:#f97316}
+details p{margin-top:10px;font-size:15px;color:#a1a1aa}
+
+/* ===== form ===== */
+.form-sec{padding:96px 0;background:linear-gradient(135deg,#141416,#1a1a1d);border-top:1px solid rgba(255,255,255,.08)}
+.form-sec h2{font-size:36px;font-weight:900;letter-spacing:-1px;margin-bottom:10px}
+.form-sec .sec-intro{color:#94a3b8}
+form{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;max-width:760px}
+input{flex:1 1 200px;padding:15px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font-size:15.5px;font-family:inherit}
+input::placeholder{color:#94a3b8}
+button{background:linear-gradient(135deg,#f59e0b,#f97316);color:#0a0a0f;font-weight:800;font-size:16px;padding:15px 28px;border:none;border-radius:12px;cursor:pointer;font-family:inherit}
+button:hover{filter:brightness(1.08)}
+.form-note{font-size:13px;color:#71717a;margin-top:14px}
+#form-ok{display:none;margin-top:16px;background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.4);color:#6ee7b7;padding:14px 18px;border-radius:12px;font-weight:600}
+
+/* ===== footer ===== */
+footer{background:#0a0a0f;color:#71717a;padding:28px 0;font-size:14px;border-top:1px solid rgba(255,255,255,.07)}
+.footer-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center}
+.footer-logo{display:flex;align-items:center;gap:8px;font-weight:800;color:#fff}
+.footer-logo em{font-style:normal;color:#f97316}
+
+@media(max-width:960px){
+  .hero{padding:64px 0}
+  .hero-in{grid-template-columns:1fr;gap:36px}
+  .hero h1{font-size:38px}
+  .pain-grid{grid-template-columns:1fr 1fr}
+  .step-grid{grid-template-columns:1fr 1fr}
+  .hw-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .pain-grid,.ch-grid,.step-grid,.hw-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr}
+  .header-phone span{display:none}
+  .pains h2,.how h2,.steps h2,.how-work h2,.why h2,.gallery h2,.faq h2,.form-sec h2{font-size:27px;line-height:1.32;letter-spacing:-.4px;text-wrap:balance}
+  .hero h1{text-wrap:balance}
+  .why-col li{font-size:14.5px}
+  .why-big p{font-size:14.5px;line-height:1.5}
+  .sec-intro{font-size:15.5px}
+}
+
+/* ===== ANIMATIONS ===== */
+@media (prefers-reduced-motion: no-preference){
+  .hero .tag{animation:fadeDown .7s .05s both}
+  .hero h1{animation:heroIn .9s cubic-bezier(.16,1,.3,1) .1s both}
+  .hero-sub{animation:fadeUp .8s .2s both}
+  .badges{animation:fadeUp .8s .3s both}
+  .cta-row{animation:fadeUp .8s .4s both}
+  .hero-media{animation:scaleIn .9s cubic-bezier(.16,1,.3,1) .25s both}
+  @keyframes heroIn{from{opacity:0;transform:translateY(36px) scale(.98)}to{opacity:1;transform:none}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+  @keyframes scaleIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+
+  .hero h1 span{background-size:220% 100%;animation:gradShift 4.5s ease-in-out infinite}
+  @keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+  .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none;animation:blobFloat 13s ease-in-out infinite alternate;z-index:0}
+  .blob.b1{width:540px;height:540px;background:rgba(249,115,22,.22);top:-180px;right:-150px}
+  .blob.b2{width:440px;height:440px;background:rgba(251,191,36,.12);bottom:-200px;left:-140px;animation-delay:-6s}
+  .blob.b3{width:300px;height:300px;background:rgba(249,115,22,.10);top:40%;left:55%;animation-delay:-3s}
+  @keyframes blobFloat{0%{transform:translate(0,0) scale(1)}100%{transform:translate(46px,34px) scale(1.18)}}
+
+  .tag::before{animation:pulse 2.2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}50%{box-shadow:0 0 0 8px rgba(52,211,153,0)}}
+
+  .btn{position:relative;overflow:hidden}
+  .btn::after{content:'';position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.45) 50%,transparent 80%);transform:translateX(-120%) skewX(-15deg);animation:shine 3.4s ease-in-out infinite}
+  @keyframes shine{0%,60%{transform:translateX(-120%) skewX(-15deg)}100%{transform:translateX(320%) skewX(-15deg)}}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .75s ease,transform .75s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  .reveal-grid>*{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s cubic-bezier(.16,1,.3,1)}
+  .reveal-grid.in>*{opacity:1;transform:none}
+  .reveal-grid.in>*:nth-child(1){transition-delay:.05s}
+  .reveal-grid.in>*:nth-child(2){transition-delay:.12s}
+  .reveal-grid.in>*:nth-child(3){transition-delay:.19s}
+  .reveal-grid.in>*:nth-child(4){transition-delay:.26s}
+  .reveal-grid.in>*:nth-child(5){transition-delay:.33s}
+  .reveal-grid.in>*:nth-child(6){transition-delay:.4s}
+
+  .pain,.ch,.step,.hw{transition:transform .28s cubic-bezier(.16,1,.3,1),box-shadow .28s ease,border-color .2s ease,opacity .65s ease}
+  .pain:hover,.ch:hover,.step:hover,.hw:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(0,0,0,.4);border-color:rgba(249,115,22,.4)}
+  .why-col{transition:transform .28s cubic-bezier(.16,1,.3,1)}
+  .why-col:hover{transform:translateY(-4px)}
+  .why-big{transition:transform .28s cubic-bezier(.16,1,.3,1)}
+  .why-big:hover{transform:translateY(-3px)}
+
+  .marquee{overflow:hidden;white-space:nowrap;background:linear-gradient(90deg,#111116,#1a1a1d);border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);padding:16px 0;position:relative}
+  .marquee-track{display:inline-flex;align-items:center;animation:marquee 30s linear infinite;will-change:transform}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  .mq-item{display:inline-flex;align-items:center;gap:22px;padding:0 22px;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#71717a}
+  .mq-item b{color:#f97316}
+  .mq-item::after{content:'';width:6px;height:6px;border-radius:50%;background:#f97316;margin-left:22px}
+  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+}
+</style>
+<noscript><style>.reveal,.reveal-grid>*{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a class="logo" href="#">
+      <svg width="30" height="30" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#f97316"/><path d="M20 50 L32 14 L44 50" stroke="#0a0a0f" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 42 H40" stroke="#0a0a0f" stroke-width="5" stroke-linecap="round"/></svg>
+      Т<em>ишина</em>
+    </a>
+    <div class="header-right">
+      <a class="header-phone" href="https://vk.ru/tishina.glemp" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.16 17.6c-5.28 0-8.5-3.62-8.63-9.65h2.71c.09 4.45 2.05 6.33 3.6 6.72V7.95h2.5v3.84c1.53-.16 3.14-1.92 3.68-3.84h2.5c-.42 2.37-2.17 4.13-3.41 4.85 1.24.58 3.22 2.1 3.98 4.8h-2.75c-.6-1.86-2.06-3.3-4-3.5v3.5h-.18z"/></svg>
+        <span>Мы в VK</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="wrap hero-in">
+    <div>
+      <div class="tag">Река Дон в 10 минутах от Воронежа · Бронирование через VK</div>
+      <h1>Отдых в А-фреймах.<br>Только вы, <span>природа и тишина</span></h1>
+      <p class="hero-sub">Просторные А-фрейм дома посреди полей, у реки Дон. Панорамные окна, <b>банный чан</b>, костровая зона и полная перезагрузка — с городским комфортом.</p>
+      <div class="badges">
+        <div class="badge"><b>10 минут</b> от города</div>
+        <div class="badge">Банный <b>чан</b></div>
+        <div class="badge">Река <b>Дон</b> рядом</div>
+        <div class="badge">Дома <b>больше стандарта</b></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="#form">Забронировать даты</a>
+        <a class="btn ghost" href="https://vk.ru/tishina.glemp" target="_blank" rel="noopener">Написать в VK</a>
+      </div>
+      <div class="note" style="margin-top:14px">Проверяем свободные даты и отвечаем в течение часа в рабочее время</div>
+    </div>
+    <div class="hero-media">
+      <div class="corner tl"></div>
+      <picture><source srcset="img/hero.webp" type="image/webp"><img alt="А-фрейм дома глэмпинга Тишина в сумерках" fetchpriority="high" src="img/hero.jpg"></picture>
+      <div class="corner br"></div>
+      <div class="hero-media-cap">
+        <span>Глэмпинг «Тишина» · Воронеж</span>
+        <b>А-фрейм дома · банный чан</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee"><div class="marquee-track">
+  <div class="mq-item">А-фрейм <b>дома</b></div>
+  <div class="mq-item">Банный <b>чан</b></div>
+  <div class="mq-item">Река <b>Дон</b></div>
+  <div class="mq-item">10 минут <b>от города</b></div>
+  <div class="mq-item">Костровая <b>зона</b></div>
+  <div class="mq-item">Шашлык <b>на заказ</b></div>
+  <div class="mq-item">Панорамные <b>окна</b></div>
+  <div class="mq-item">Природа <b>и тишина</b></div>
+  <div class="mq-item">А-фрейм <b>дома</b></div>
+  <div class="mq-item">Банный <b>чан</b></div>
+  <div class="mq-item">Река <b>Дон</b></div>
+  <div class="mq-item">10 минут <b>от города</b></div>
+  <div class="mq-item">Костровая <b>зона</b></div>
+  <div class="mq-item">Шашлык <b>на заказ</b></div>
+  <div class="mq-item">Панорамные <b>окна</b></div>
+  <div class="mq-item">Природа <b>и тишина</b></div>
+</div></div>
+
+<section class="pains"><div class="wrap">
+  <h2 class="reveal">«Тишина» — это про вас, если</h2>
+  <p class="sec-intro reveal">Дом, работа, городской шум. Иногда нужно просто выдохнуть и побыть там, где не слышно ничего, кроме ветра.</p>
+  <div class="pain-grid reveal-grid">
+    <div class="pain"><picture><source srcset="img/houses.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Устали от города" src="img/houses.jpg"></picture><div class="pain-num">01</div><h3>Устали от города</h3><p>Хочется отключиться от уведомлений, пробок и людей. Здесь — бескрайние поля и тишина, в 10 минутах от дома.</p></div>
+    <div class="pain"><picture><source srcset="img/evening.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Семейный отдых" src="img/evening.jpg"></picture><div class="pain-num">02</div><h3>Хочется собрать семью</h3><p>Просторный дом с панорамными окнами, вечер у огня и вид на природу. Дети на воздухе, взрослые — с кофе на террасе.</p></div>
+    <div class="pain"><picture><source srcset="img/chan.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Пара и романтика" src="img/chan.jpg"></picture><div class="pain-num">03</div><h3>Это повод: свидание или юбилей</h3><p>Банный чан на дровах, звёздное небо и полное уединение. Идеально, чтобы отметить важную дату вдвоём.</p></div>
+    <div class="pain"><picture><source srcset="img/house2.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Посиделки с шашлыком" src="img/house2.jpg"></picture><div class="pain-num">04</div><h3>Хочется шашлыка у огня</h3><p>Костровая зона, мангал и готовый шашлык от «Не Травы» с доставкой прямо к дому. Никакой суеты с продуктами.</p></div>
+    <div class="pain"><picture><source srcset="img/interior.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Перезагрузка и отдых" src="img/interior.jpg"></picture><div class="pain-num">05</div><h3>Нужна перезагрузка</h3><p>Настоящий отдых — это не смена локации, а смена ритма. Проснуться под пение птиц, а не под будильник.</p></div>
+    <div class="pain"><picture><source srcset="img/chan_zone.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Смена обстановки" src="img/chan_zone.jpg"></picture><div class="pain-num">06</div><h3>Надоели «как обычно» выходные</h3><p>Торговые центры и кафе заменяются на реку, костёр и банный чан. Выходные, которые запоминаются.</p></div>
+  </div>
+</div></section>
+
+<section class="how"><div class="wrap">
+  <h2 class="reveal">Что вас ждёт в «Тишине»</h2>
+  <p class="sec-intro reveal">Не просто ночёвка на природе, а продуманный отдых: дом, банный чан и сервис вокруг.</p>
+  <div class="ch-grid reveal-grid">
+    <div class="ch"><picture><source srcset="img/house.webp" type="image/webp"><img class="ch-img" loading="lazy" alt="А-фрейм дом" src="img/house.jpg"></picture><h3>Просторные А-фрейм дома</h3><p>Дома больше стандартных: панорамное остекление, второй свет, полноценная кухня и зона отдыха. Спроектированы с любовью к деталям и вашему комфорту.</p></div>
+    <div class="ch"><picture><source srcset="img/chan.webp" type="image/webp"><img class="ch-img" loading="lazy" alt="Банный чан" src="img/chan.jpg"></picture><h3>Сибирский банный чан</h3><p>Тёплая вода на дровах под открытым небом. Ароматные травы, дым от дров и целительная сила воды — истинное русское удовольствие на свежем воздухе.</p></div>
+    <div class="ch"><picture><source srcset="img/evening.webp" type="image/webp"><img class="ch-img" loading="lazy" alt="Костровая зона" src="img/evening.jpg"></picture><h3>Костровая зона и вечера у огня</h3><p>Шезлонги, гирлянды и живой огонь. Посиделки до темноты — с пледом, глинтвейном или просто под звёздами.</p></div>
+    <div class="ch"><picture><source srcset="img/chan_zone.webp" type="image/webp"><img class="ch-img" loading="lazy" alt="Шашлык на заказ" src="img/chan_zone.jpg"></picture><h3>Шашлык от «Не Травы»</h3><p>Готовим за вас: сочное мясо со специями доставим прямо к домику. Вы занимаетесь отдыхом — мы занимаемся ужином.</p></div>
+  </div>
+  <div class="div-note reveal"><b>Расположение:</b> посреди бескрайних полей, всего в 10 минутах езды от Воронежа, рядом с живописной рекой Дон. Идеальный баланс между природой и доступностью городских удобств.</div>
+</div></section>
+
+<section class="steps"><div class="wrap">
+  <h2 class="reveal">Готовы к перезагрузке?</h2>
+  <p class="sec-intro reveal">Проверяем свободные даты и бронируем дом под ваш формат: вдвоём, семьёй или компанией.</p>
+  <div class="cta-center reveal">
+    <a class="btn" href="#form">Забронировать даты</a>
+    <span class="note">Бронирование через сообщения VK · Ответ в течение часа</span>
+  </div>
+</div></section>
+
+<section class="how-work"><div class="wrap">
+  <h2 class="reveal">Как проходит ваш отдых</h2>
+  <p class="sec-intro reveal">Всё просто и без лишних звеньев: от брони до выезда.</p>
+  <div class="hw-grid reveal-grid">
+    <div class="hw"><div class="hw-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg></div><div class="hw-num">ЭТАП 01</div><h3>Бронирование</h3><p>Пишете нам в VK, выбираете дату и формат отдыха. Подтверждаем и фиксируем бронь.</p></div>
+    <div class="hw"><div class="hw-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div class="hw-num">ЭТАП 02</div><h3>Заезд</h3><p>10 минут от города — и вы на месте. Заселение, ключи, короткий инструктаж по дому и чану.</p></div>
+    <div class="hw"><div class="hw-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div><div class="hw-num">ЭТАП 03</div><h3>Дом и территория</h3><p>Уютный А-фрейм с панорамными окнами, ухоженная территория с приватными зонами отдыха.</p></div>
+    <div class="hw"><div class="hw-icon"><svg viewBox="0 0 24 24"><path d="M7 16c-2.5 0-4-1.5-4-4s1.5-4 4-4c.5-2.5 2-4 4.5-4S16 5.5 16.5 8c2.5 0 4 1.5 4 4s-1.5 4-4 4"/><path d="M12 16v5"/><path d="M9.5 21h5"/></svg></div><div class="hw-num">ЭТАП 04</div><h3>Банный чан</h3><p>Топим чан на дровах, добавляем травы — и можно париться и расслабляться под открытым небом.</p></div>
+    <div class="hw"><div class="hw-icon"><svg viewBox="0 0 24 24"><path d="M4 20c4-3 6-8 6-13"/><path d="M8 20c4-3 6-8 6-13"/><path d="M12 20c3-2 4-5 4-8"/><path d="M12 4l2 2-2 2"/></svg></div><div class="hw-num">ЭТАП 05</div><h3>Ужин у огня</h3><p>Костровая зона, мангал, шашлык с доставкой. Вечер, который заканчивается только на рассвете.</p></div>
+    <div class="hw"><div class="hw-icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M12 6v6l4 2"/></svg></div><div class="hw-num">ЭТАП 06</div><h3>Выезд и возвращение</h3><p>Собираетесь без спешки, мы помогаем с выездом. Возвращаетесь отдохнувшими — или планируете следующий заезд.</p></div>
+  </div>
+</div></section>
+
+<section class="why"><div class="wrap">
+  <h2 class="reveal">Почему «Тишина», а не «как обычно»</h2>
+  <p class="sec-intro reveal">Мы строили место, в которое хочется возвращаться. Вот в чём разница.</p>
+  <div class="why-grid reveal-grid">
+    <div class="why-col bad">
+      <h3>Как обычно отдыхают</h3>
+      <ul>
+        <li>Дача «у друзей»: ремонт, забор и разговоры про грядки</li>
+        <li>Отель в городе: те же стены, тот же шум, другой номер</li>
+        <li>Кемпинг с палаткой: спартанские условия и походный быт</li>
+        <li>Очереди, чужие люди и общие зоны</li>
+        <li>Выходные прошли, а усталость осталась</li>
+      </ul>
+    </div>
+    <div class="why-col good">
+      <h3>Как у нас</h3>
+      <ul>
+        <li>Свой А-фрейм дом с панорамными окнами и кухней</li>
+        <li>Приватная территория — только вы и природа</li>
+        <li>Банный чан и костровая зона прямо у дома</li>
+        <li>Шашлык с доставкой, тёплые пледы, продуманные детали</li>
+        <li>Выезжаете отдохнувшими и планируете вернуться</li>
+      </ul>
+    </div>
+  </div>
+  <div class="why-big reveal">
+    <h3>Природа без компромиссов по комфорту</h3>
+    <p>Наши А-фрейм дома спроектированы «с любовью к деталям»: больше стандартной площади, второй свет, панорамное остекление. Вы спите под шум ветра в полях, а не под сигнализацию машин — при этом у вас есть полноценная кухня, тёплый дом и всё для комфортного отдыха в любое время года.</p>
+  </div>
+</div></section>
+
+<section class="gallery"><div class="wrap">
+  <h2 class="reveal">Как это выглядит</h2>
+  <p class="sec-intro reveal">Живые фото нашего глэмпинга — без стоков и фотошопа.</p>
+  <div class="gal-grid reveal-grid">
+    <div class="gal"><picture><source srcset="img/hero.webp" type="image/webp"><img alt="А-фрейм дома в сумерках" loading="lazy" src="img/hero.jpg"></picture></div>
+    <div class="gal"><picture><source srcset="img/chan.webp" type="image/webp"><img loading="lazy" alt="Банный чан с цитрусами" src="img/chan.jpg"></picture></div>
+    <div class="gal"><picture><source srcset="img/evening.webp" type="image/webp"><img loading="lazy" alt="Вечер у костровой зоны" src="img/evening.jpg"></picture></div>
+    <div class="gal"><picture><source srcset="img/interior.webp" type="image/webp"><img loading="lazy" alt="Интерьер А-фрейм дома" src="img/interior.jpg"></picture></div>
+    <div class="gal"><picture><source srcset="img/house.webp" type="image/webp"><img loading="lazy" alt="Дом вечером с подсветкой" src="img/house.jpg"></picture></div>
+    <div class="gal"><picture><source srcset="img/houses.webp" type="image/webp"><img loading="lazy" alt="Домики с гирляндами" src="img/houses.jpg"></picture></div>
+  </div>
+</div></section>
+
+<section class="faq"><div class="wrap">
+  <h2 class="reveal">Вопросы</h2>
+  <p class="sec-intro reveal">Отвечаем честно, как на переговорах.</p>
+  <div class="reveal-grid">
+  <details><summary>Как забронировать дом?</summary><p>Напишите нам в сообщения VK: укажите желаемые даты, количество гостей и формат отдыха. Подтвердим свободные даты и зафиксируем бронь.</p></details>
+  <details><summary>Где вы находитесь?</summary><p>В 10 минутах езды от Воронежа, посреди полей, рядом с живописной рекой Дон. Точные координаты и схему проезда пришлём после бронирования.</p></details>
+  <details><summary>Что входит в стоимость проживания?</summary><p>Проживание в А-фрейм доме, доступ ко всей территории и зонам отдыха. Банный чан и шашлык от «Не Травы» заказываются отдельно — подробности уточняйте при бронировании.</p></details>
+  <details><summary>А работает ли это зимой?</summary><p>Да, дом тёплый, а банный чан зимой — отдельное удовольствие: пар, снег и звёзды. Глэмпинг открыт круглый год.</p></details>
+  <details><summary>Что взять с собой?</summary><p>Минимальный набор: личные вещи и хорошее настроение. Дом укомплектован, а еду можно заказать с доставкой — включая готовый шашлык.</p></details>
+  <details><summary>Можно ли с семьёй и детьми?</summary><p>Конечно. Дома просторные, территория ухоженная и приватная — комфортно и взрослым, и детям.</p></details>
+  </div>
+</div></section>
+
+<section class="form-sec" id="form"><div class="wrap">
+  <h2 class="reveal">Забронировать даты</h2>
+  <p class="sec-intro reveal">Оставьте контакты — мы пришлём свободные даты, цены и ответим на вопросы. Обычно отвечаем в течение часа в рабочее время.</p>
+  <form id="lead-form" class="reveal">
+    <input type="text" name="name" placeholder="Ваше имя" required>
+    <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+    <input type="text" name="dates" placeholder="Желаемые даты (необязательно)">
+    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+    <button type="submit">Забронировать</button>
+  </form>
+  <p class="form-note">Или просто напишите нам в VK: vk.com/tishina.glemp. Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+  <div id="form-ok">Заявка принята. Свяжемся с вами в течение часа в рабочее время.</div>
+</div></section>
+
+<footer>
+  <div class="wrap footer-in">
+    <div class="footer-logo">
+      <svg width="22" height="22" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#f97316"/><path d="M20 50 L32 14 L44 50" stroke="#0a0a0f" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 42 H40" stroke="#0a0a0f" stroke-width="5" stroke-linecap="round"/></svg>
+      Т<em>ишина</em>
+    </div>
+    <div>Глэмпинг · А-фрейм дома у реки Дон · Воронеж</div>
+    <div><a href="https://vk.ru/tishina.glemp" target="_blank" rel="noopener" style="text-decoration:underline">vk.com/tishina.glemp</a></div>
+  </div>
+</footer>
+
+<script>
+// reveal-анимации при скролле
+(function(){
+  var els = document.querySelectorAll('.reveal, .reveal-grid');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting || e.boundingClientRect.top < window.innerHeight){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.1, rootMargin:'0px 0px -30px 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
+
+// маска телефона +7
+(function(){
+  var ph = document.querySelector('input[name="phone"]');
+  if(!ph) return;
+  ph.addEventListener('input', function(){
+    var d = this.value.replace(/\D/g, '');
+    if(!d.length || d === '7'){ this.value = ''; return; }
+    if(d.charAt(0) === '8') d = '7' + d.slice(1);
+    if(d.charAt(0) !== '7') d = '7' + d;
+    d = d.slice(0, 11);
+    var out = '+7';
+    if(d.length > 1) out += ' (' + d.slice(1, 4);
+    if(d.length >= 4) out += ') ' + d.slice(4, 7);
+    if(d.length >= 7) out += '-' + d.slice(7, 9);
+    if(d.length >= 9) out += '-' + d.slice(9, 11);
+    this.value = out;
+  });
+  ph.addEventListener('blur', function(){
+    var d = this.value.replace(/\D/g, '');
+    if(d.length < 11) this.value = '';
+  });
+})();
+
+// форма: без бэкенда открываем VK с заявкой, иначе показываем подтверждение
+document.getElementById('lead-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f = this;
+  var honeypot = f.querySelector('input[name="website"]');
+  if(honeypot && honeypot.value){ return; }
+  var name = f.querySelector('input[name="name"]').value.trim();
+  var phone = f.querySelector('input[name="phone"]').value.trim();
+  var dates = (f.querySelector('input[name="dates"]').value || '').trim();
+  var msg = 'Здравствуйте! Хочу забронировать дом в глэмпинге «Тишина».';
+  if(name) msg += '\nИмя: ' + name;
+  if(phone) msg += '\nТелефон: ' + phone;
+  if(dates) msg += '\nЖелаемые даты: ' + dates;
+  var url = 'https://vk.ru/tishina.glemp';
+  window.open(url, '_blank');
+  document.getElementById('form-ok').style.display = 'block';
+  f.reset();
+});
+</script>
+</body>
+</html>
