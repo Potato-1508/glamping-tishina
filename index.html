@@ -66,8 +66,8 @@ a{color:inherit;text-decoration:none}
 /* ===== header ===== */
 header{position:sticky;top:0;z-index:50;background:rgba(242,234,217,.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(28,25,23,.1)}
 .header-in{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
-.logo{display:block;position:relative;width:232px;height:40px}
-.logo img{display:block;position:absolute;top:0;left:0;height:228px;width:auto;max-width:none}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{display:block;height:64px;width:auto}
 .logo em{font-style:normal;color:#f97316}
 .header-right{display:flex;align-items:center;gap:12px}
 .header-phone{display:flex;align-items:center;gap:8px;border:1px solid rgba(28,25,23,.25);color:#1c1917;font-weight:700;font-size:14px;padding:8px 14px;border-radius:10px;transition:all .15s}
@@ -75,7 +75,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(242,234,217,.85);backdro
 .header-phone svg{display:block}
 
 /* ===== hero ===== */
-.hero{position:relative;padding:200px 0 88px;overflow:hidden}
+.hero{position:relative;padding:96px 0 88px;overflow:hidden}
 .hero::before{content:'';position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.15),transparent 65%);top:-340px;right:-200px;filter:blur(10px)}
 .hero::after{content:'';position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.1),transparent 60%);bottom:-300px;left:-160px;filter:blur(10px)}
 .hero-dots{position:absolute;top:40px;left:0;right:0;height:100%;pointer-events:none;opacity:.35;background-image:radial-gradient(rgba(28,25,23,.12) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(180deg,rgba(0,0,0,.6),transparent 45%)}
@@ -283,7 +283,7 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
 <header>
   <div class="wrap header-in">
     <a class="logo" href="#">
-      <img src="img/logo-full.webp" alt="Глэмпинг Тишина" width="228" height="228">
+      <img src="img/logo-full.webp" alt="Глэмпинг Тишина" width="64" height="64">
     </a>
     <div class="header-right">
       <a class="header-phone" href="https://vk.com/tishina.glemp" target="_blank" rel="noopener">
