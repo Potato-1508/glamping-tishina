@@ -340,19 +340,32 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
         <div class="badge">Река <b>Дон</b> рядом</div>
         <div class="badge">Дома <b>больше стандарта</b></div>
       </div>
-      <div class="cta-row">
-        <a class="btn" href="#form">Забронировать даты</a>
-        <a class="btn ghost" href="https://vk.com/tishina.glemp" target="_blank" rel="noopener">Написать в VK</a>
+      <div class="dd-wrap">
+        <button class="btn-green" id="heroBookBtn" type="button">Забронировать <span class="caret">▾</span></button>
+        <div class="dd-menu">
+          <div class="dd-hint">Выберите формат отдыха:</div>
+          <button class="dd-item" type="button" data-vk="Вдвоём">💑 Вдвоём</button>
+          <button class="dd-item" type="button" data-vk="Семья с детьми">👨‍👩‍👧‍👦 Семья с детьми</button>
+          <button class="dd-item" type="button" data-vk="Компания друзей">🔥 Компания друзей</button>
+          <button class="dd-item" type="button" data-vk="Отдых с шашлыком от «Не Травы»">🍢 Отдых + шашлык «Не Трава»</button>
+          <button class="dd-item" type="button" data-vk="Свой формат / вопрос">💬 Свой формат или вопрос</button>
+        </div>
       </div>
       <div class="note" style="margin-top:14px">Проверяем свободные даты и отвечаем в течение часа в рабочее время</div>
     </div>
     <div class="hero-media">
-      <div class="corner tl"></div>
-      <picture><source srcset="img/hero.webp" type="image/webp"><img alt="А-фрейм дома глэмпинга Тишина в сумерках" src="img/hero.jpg"></picture>
-      <div class="corner br"></div>
-      <div class="hero-media-cap">
-        <span>Глэмпинг «Тишина» · Воронеж</span>
-        <b>А-фрейм дома · банный чан</b>
+      <div class="slider" id="heroSlider">
+        <div class="slider-track">
+          <div class="slide"><picture><source srcset="img/hero.webp" type="image/webp"><img loading="lazy" alt="А-фрейм дома глэмпинга Тишина" src="img/hero.jpg"></picture><div class="slide-cap"><b>Ваш А-фрейм</b>Панорамные окна и вид на поля</div></div>
+          <div class="slide"><picture><source srcset="img/houses.webp" type="image/webp"><img loading="lazy" alt="Домики с гирляндами" src="img/houses.jpg"></picture><div class="slide-cap"><b>Домики с гирляндами</b>Вечера здесь выглядят именно так</div></div>
+          <div class="slide"><picture><source srcset="img/evening.webp" type="image/webp"><img loading="lazy" alt="Вечер у костра" src="img/evening.jpg"></picture><div class="slide-cap"><b>Вечер у огня</b>Костровая зона, пледы и живой огонь</div></div>
+          <div class="slide"><picture><source srcset="img/chan.webp" type="image/webp"><img loading="lazy" alt="Банный чан" src="img/chan.jpg"></picture><div class="slide-cap"><b>Банный чан</b>Тёплая вода на дровах под звёздами</div></div>
+          <div class="slide"><picture><source srcset="img/house.webp" type="image/webp"><img loading="lazy" alt="Дом вечером" src="img/house.jpg"></picture><div class="slide-cap"><b>Дом вечером</b>Подсветка, тишина и природа</div></div>
+          <div class="slide"><picture><source srcset="img/chan_zone.webp" type="image/webp"><img loading="lazy" alt="Чан на закате" src="img/chan_zone.jpg"></picture><div class="slide-cap"><b>Чан на закате</b>Пар, дым и звёздное небо</div></div>
+        </div>
+        <button class="slider-arrow prev" type="button" aria-label="Назад">‹</button>
+        <button class="slider-arrow next" type="button" aria-label="Вперёд">›</button>
+        <div class="slider-dots"></div>
       </div>
     </div>
   </div>
@@ -598,87 +611,93 @@ document.getElementById('lead-form').addEventListener('submit', function(e){
   f.reset();
 });
 
-// Слайдер в блоке «Тишина — это про вас»
+// Слайдеры (hero + блок «Тишина — это про вас»)
 (function(){
-  var slider = document.getElementById('painSlider');
-  if(!slider) return;
-  var track = slider.querySelector('.slider-track');
-  var slides = slider.querySelectorAll('.slide');
-  var dotsBox = slider.querySelector('.slider-dots');
-  var prev = slider.querySelector('.prev');
-  var next = slider.querySelector('.next');
-  var idx = 0, timer = null;
+  document.querySelectorAll('.slider').forEach(function(slider){
+    var track = slider.querySelector('.slider-track');
+    var slides = slider.querySelectorAll('.slide');
+    var dotsBox = slider.querySelector('.slider-dots');
+    var prev = slider.querySelector('.prev');
+    var next = slider.querySelector('.next');
+    var idx = 0, timer = null;
 
-  slides.forEach(function(_, i){
-    var d = document.createElement('button');
-    d.type = 'button';
-    d.setAttribute('aria-label', 'Слайд ' + (i+1));
-    if(i === 0) d.classList.add('active');
-    d.addEventListener('click', function(){ go(i); restart(); });
-    dotsBox.appendChild(d);
+    slides.forEach(function(_, i){
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.setAttribute('aria-label', 'Слайд ' + (i+1));
+      if(i === 0) d.classList.add('active');
+      d.addEventListener('click', function(){ go(i); restart(); });
+      dotsBox.appendChild(d);
+    });
+    var dots = dotsBox.querySelectorAll('button');
+
+    function go(i){
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+      dots.forEach(function(d, j){ d.classList.toggle('active', j === idx); });
+    }
+    function restart(){
+      if(timer) clearInterval(timer);
+      timer = setInterval(function(){ go(idx + 1); }, 4500);
+    }
+    prev.addEventListener('click', function(){ go(idx - 1); restart(); });
+    next.addEventListener('click', function(){ go(idx + 1); restart(); });
+
+    // свайп для мобильных
+    var startX = null;
+    slider.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+    slider.addEventListener('touchend', function(e){
+      if(startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if(Math.abs(dx) > 40){ go(dx < 0 ? idx + 1 : idx - 1); restart(); }
+      startX = null;
+    }, {passive:true});
+
+    restart();
   });
-  var dots = dotsBox.querySelectorAll('button');
-
-  function go(i){
-    idx = (i + slides.length) % slides.length;
-    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    dots.forEach(function(d, j){ d.classList.toggle('active', j === idx); });
-  }
-  function restart(){
-    if(timer) clearInterval(timer);
-    timer = setInterval(function(){ go(idx + 1); }, 4500);
-  }
-  prev.addEventListener('click', function(){ go(idx - 1); restart(); });
-  next.addEventListener('click', function(){ go(idx + 1); restart(); });
-
-  // свайп для мобильных
-  var startX = null;
-  slider.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
-  slider.addEventListener('touchend', function(e){
-    if(startX === null) return;
-    var dx = e.changedTouches[0].clientX - startX;
-    if(Math.abs(dx) > 40){ go(dx < 0 ? idx + 1 : idx - 1); restart(); }
-    startX = null;
-  }, {passive:true});
-
-  restart();
 })();
 
-// Выпадающее меню «Забронировать» → VK
+// Выпадающие меню «Забронировать» → VK (hero + pains)
 (function(){
-  var wrap = document.querySelector('.dd-wrap');
-  if(!wrap) return;
-  var btn = document.getElementById('bookBtn');
-  var menu = document.getElementById('bookMenu');
-
-  btn.addEventListener('click', function(e){
-    e.stopPropagation();
-    // если снизу мало места — открываем меню вверх
-    var r = btn.getBoundingClientRect();
-    var menuH = menu.offsetHeight || 320;
-    if(window.innerHeight - r.bottom < menuH + 24){
-      wrap.classList.add('open-up');
-    } else {
-      wrap.classList.remove('open-up');
-    }
-    wrap.classList.toggle('open');
-  });
-
-  menu.querySelectorAll('.dd-item').forEach(function(item){
-    item.addEventListener('click', function(){
-      var format = item.getAttribute('data-vk') || '';
-      var msg = 'Здравствуйте! Хочу забронировать дом в глэмпинге «Тишина».';
-      if(format) msg += '\nФормат отдыха: ' + format;
-      window.open('https://vk.com/tishina.glemp', '_blank');
-      wrap.classList.remove('open');
-    });
-  });
+  var wraps = document.querySelectorAll('.dd-wrap');
+  if(!wraps.length) return;
 
   document.addEventListener('click', function(e){
-    if(!wrap.contains(e.target)) wrap.classList.remove('open');
+    wraps.forEach(function(w){
+      if(!w.contains(e.target)) w.classList.remove('open');
+    });
   });
   document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') wrap.classList.remove('open');
+    if(e.key === 'Escape') wraps.forEach(function(w){ w.classList.remove('open'); });
+  });
+
+  wraps.forEach(function(wrap){
+    var btn = wrap.querySelector('.btn-green');
+    var menu = wrap.querySelector('.dd-menu');
+    if(!btn || !menu) return;
+
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      // если снизу мало места — открываем меню вверх
+      var r = btn.getBoundingClientRect();
+      var menuH = menu.offsetHeight || 320;
+      if(window.innerHeight - r.bottom < menuH + 24){
+        wrap.classList.add('open-up');
+      } else {
+        wrap.classList.remove('open-up');
+      }
+      wrap.classList.toggle('open');
+    });
+
+    menu.querySelectorAll('.dd-item').forEach(function(item){
+      item.addEventListener('click', function(){
+        var format = item.getAttribute('data-vk') || '';
+        var msg = 'Здравствуйте! Хочу забронировать дом в глэмпинге «Тишина».';
+        if(format) msg += '\nФормат отдыха: ' + format;
+        window.open('https://vk.com/tishina.glemp', '_blank');
+        wrap.classList.remove('open');
+      });
+    });
   });
 })();
 </script>
