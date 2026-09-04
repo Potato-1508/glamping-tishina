@@ -83,7 +83,7 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .hero-dots{position:absolute;top:40px;left:0;right:0;height:100%;pointer-events:none;opacity:.35;background-image:radial-gradient(rgba(28,25,23,.12) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(180deg,rgba(0,0,0,.6),transparent 45%)}
 .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
 .tag{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.35);color:#c2410c;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;margin-bottom:26px}
-.hero-tents{display:block;width:180px;height:auto;margin-bottom:20px;opacity:.95}
+.hero-tents{display:block;width:288px;height:auto;margin-bottom:20px;opacity:.95}
 .tag::before{content:'';width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 12px #34d399}
 .hero h1{font-size:50px;line-height:1.08;font-weight:900;letter-spacing:-1.5px}
 .hero h1 span{background:linear-gradient(135deg,#d97706,#ea580c);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -106,19 +106,42 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .hero-media-cap{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:#78716c}
 .hero-media-cap b{color:#44403c;font-weight:600}
 
-/* ===== pains ===== */
+/* ===== pains (showcase: slider + booking) ===== */
 .pains{background:rgba(255,255,255,.4);border-top:1px solid rgba(28,25,23,.08);border-bottom:1px solid rgba(28,25,23,.08);padding:88px 0}
-.pains h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
-.sec-intro{font-size:17px;color:#57534e;max-width:620px;margin-bottom:44px}
-.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.pain{background:rgba(255,255,255,.75);border:1px solid rgba(28,25,23,.1);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:border-color .2s}
-.pain-img{object-fit:cover;display:block;width:calc(100% + 48px);margin:-24px -24px 18px;height:168px}
-.pain::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#f97316,transparent);opacity:0;transition:opacity .2s}
-.pain:hover{border-color:rgba(249,115,22,.45)}
-.pain:hover::before{opacity:1}
-.pain-num{font-size:12px;font-weight:800;color:#f97316;letter-spacing:1.5px;margin-bottom:10px}
-.pain h3{font-size:16px;font-weight:700;margin-bottom:8px}
-.pain p{font-size:14px;color:#57534e}
+.pain-split{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.pain-split h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
+.pain-split .sec-intro{font-size:17px;color:#57534e;max-width:540px;margin-bottom:24px}
+/* slider */
+.slider{position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(28,25,23,.12);box-shadow:0 24px 60px rgba(87,83,78,.18);background:#e7ddd0}
+.slider-track{display:flex;transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.slide{min-width:100%;position:relative}
+.slide img{width:100%;height:430px;object-fit:cover;display:block}
+.slide-cap{position:absolute;left:0;right:0;bottom:0;padding:40px 24px 20px;background:linear-gradient(180deg,transparent,rgba(20,16,12,.78));color:#fff;font-size:15.5px;font-weight:600;line-height:1.45}
+.slide-cap b{display:block;font-size:17.5px;margin-bottom:2px}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:#1c1917;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:background .15s}
+.slider-arrow:hover{background:#fff}
+.slider-arrow.prev{left:14px}
+.slider-arrow.next{right:14px}
+.slider-dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:7px}
+.slider-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.5);cursor:pointer;padding:0;transition:all .2s}
+.slider-dots button.active{background:#fff;width:22px;border-radius:99px}
+/* правая колонка: текст */
+.pain-list{list-style:none;margin:0 0 30px}
+.pain-list li{position:relative;padding:11px 0 11px 30px;font-size:15.5px;color:#44403c;border-bottom:1px dashed rgba(28,25,23,.1)}
+.pain-list li:last-child{border-bottom:none}
+.pain-list li::before{content:'';position:absolute;left:2px;top:17px;width:15px;height:15px;border-radius:50%;background:rgba(52,211,153,.28);border:1.5px solid #16a34a}
+.pain-list li b{color:#1c1917}
+/* зелёная кнопка + выпадающее меню */
+.dd-wrap{position:relative;display:inline-block}
+.btn-green{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-weight:800;font-size:17px;padding:17px 34px;border-radius:14px;box-shadow:0 10px 30px rgba(22,163,74,.35);border:none;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:10px;transition:transform .15s}
+.btn-green:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn-green .caret{transition:transform .2s}
+.dd-wrap.open .caret{transform:rotate(180deg)}
+.dd-menu{position:absolute;top:calc(100% + 10px);left:0;min-width:320px;background:#fff;border:1px solid rgba(28,25,23,.12);border-radius:16px;box-shadow:0 24px 60px rgba(28,25,23,.22);padding:8px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .22s;z-index:40}
+.dd-wrap.open .dd-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.dd-item{display:block;width:100%;text-align:left;background:none;border:none;padding:12px 14px;border-radius:10px;font-size:15px;font-weight:600;color:#1c1917;cursor:pointer;font-family:inherit}
+.dd-item:hover{background:rgba(34,197,94,.1);color:#15803d}
+.dd-hint{font-size:12.5px;color:#a8a29e;padding:8px 14px 6px}
 
 /* ===== how (features) ===== */
 .how{padding:88px 0}
@@ -205,17 +228,19 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   .hero{padding:64px 0}
   .hero-in{grid-template-columns:1fr;gap:36px}
   .hero h1{font-size:38px}
-  .pain-grid{grid-template-columns:1fr 1fr}
+  .pain-split{grid-template-columns:1fr;gap:36px}
+  .pain-split h2{font-size:32px}
   .step-grid{grid-template-columns:1fr 1fr}
   .hw-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
   .gal-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
-  .pain-grid,.ch-grid,.step-grid,.hw-grid{grid-template-columns:1fr}
+  .pain-split,.ch-grid,.step-grid,.hw-grid{grid-template-columns:1fr}
   .gal-grid{grid-template-columns:1fr}
   .header-phone span{display:none}
-  .pains h2,.how h2,.steps h2,.how-work h2,.why h2,.gallery h2,.faq h2,.form-sec h2{font-size:27px;line-height:1.32;letter-spacing:-.4px;text-wrap:balance}
+  .slide img{height:280px}
+  .pain-split h2,.how h2,.steps h2,.how-work h2,.why h2,.gallery h2,.faq h2,.form-sec h2{font-size:27px;line-height:1.32;letter-spacing:-.4px;text-wrap:balance}
   .hero h1{text-wrap:balance}
   .why-col li{font-size:14.5px}
   .why-big p{font-size:14.5px;line-height:1.5}
@@ -352,15 +377,46 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
 </div></div>
 
 <section class="pains"><div class="wrap">
-  <h2 class="reveal">«Тишина» — это про вас, если</h2>
-  <p class="sec-intro reveal">Дом, работа, городской шум. Иногда нужно просто выдохнуть и побыть там, где не слышно ничего, кроме ветра.</p>
-  <div class="pain-grid reveal-grid">
-    <div class="pain"><picture><source srcset="img/houses.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Устали от города" src="img/houses.jpg"></picture><div class="pain-num">01</div><h3>Устали от города</h3><p>Хочется отключиться от уведомлений, пробок и людей. Здесь — бескрайние поля и тишина, в 10 минутах от дома.</p></div>
-    <div class="pain"><picture><source srcset="img/evening.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Семейный отдых" src="img/evening.jpg"></picture><div class="pain-num">02</div><h3>Хочется собрать семью</h3><p>Просторный дом с панорамными окнами, вечер у огня и вид на природу. Дети на воздухе, взрослые — с кофе на террасе.</p></div>
-    <div class="pain"><picture><source srcset="img/chan.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Пара и романтика" src="img/chan.jpg"></picture><div class="pain-num">03</div><h3>Это повод: свидание или юбилей</h3><p>Банный чан на дровах, звёздное небо и полное уединение. Идеально, чтобы отметить важную дату вдвоём.</p></div>
-    <div class="pain"><picture><source srcset="img/house2.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Посиделки с шашлыком" src="img/house2.jpg"></picture><div class="pain-num">04</div><h3>Хочется шашлыка у огня</h3><p>Костровая зона, мангал и готовый шашлык от «Не Травы» с доставкой прямо к дому. Никакой суеты с продуктами.</p></div>
-    <div class="pain"><picture><source srcset="img/interior.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Перезагрузка и отдых" src="img/interior.jpg"></picture><div class="pain-num">05</div><h3>Нужна перезагрузка</h3><p>Настоящий отдых — это не смена локации, а смена ритма. Проснуться под пение птиц, а не под будильник.</p></div>
-    <div class="pain"><picture><source srcset="img/chan_zone.webp" type="image/webp"><img class="pain-img" loading="lazy" alt="Смена обстановки" src="img/chan_zone.jpg"></picture><div class="pain-num">06</div><h3>Надоели «как обычно» выходные</h3><p>Торговые центры и кафе заменяются на реку, костёр и банный чан. Выходные, которые запоминаются.</p></div>
+  <div class="pain-split">
+    <div class="reveal">
+      <div class="slider" id="painSlider">
+        <div class="slider-track">
+          <div class="slide"><picture><source srcset="img/houses.webp" type="image/webp"><img loading="lazy" alt="Домики с гирляндами" src="img/houses.jpg"></picture><div class="slide-cap"><b>Домики с гирляндами</b>Вечера здесь выглядят именно так</div></div>
+          <div class="slide"><picture><source srcset="img/evening.webp" type="image/webp"><img loading="lazy" alt="Вечер у костра" src="img/evening.jpg"></picture><div class="slide-cap"><b>Вечер у огня</b>Костровая зона, пледы и живой огонь</div></div>
+          <div class="slide"><picture><source srcset="img/chan.webp" type="image/webp"><img loading="lazy" alt="Банный чан" src="img/chan.jpg"></picture><div class="slide-cap"><b>Банный чан</b>Тёплая вода на дровах под звёздами</div></div>
+          <div class="slide"><picture><source srcset="img/house2.webp" type="image/webp"><img loading="lazy" alt="Дом с подсветкой" src="img/house2.jpg"></picture><div class="slide-cap"><b>Ваш дом на ночь</b>Панорамные окна и полная тишина</div></div>
+          <div class="slide"><picture><source srcset="img/interior.webp" type="image/webp"><img loading="lazy" alt="Интерьер дома" src="img/interior.jpg"></picture><div class="slide-cap"><b>Внутри — уют</b>Кухня, тёплый дом и продуманные детали</div></div>
+          <div class="slide"><picture><source srcset="img/chan_zone.webp" type="image/webp"><img loading="lazy" alt="Чан на закате" src="img/chan_zone.jpg"></picture><div class="slide-cap"><b>Чан на закате</b>Пар, дым и звёздное небо</div></div>
+        </div>
+        <button class="slider-arrow prev" type="button" aria-label="Назад">‹</button>
+        <button class="slider-arrow next" type="button" aria-label="Вперёд">›</button>
+        <div class="slider-dots"></div>
+      </div>
+    </div>
+    <div>
+      <h2 class="reveal">«Тишина» — это про вас, если</h2>
+      <p class="sec-intro reveal">Дом, работа, городской шум. Иногда нужно просто выдохнуть и побыть там, где не слышно ничего, кроме ветра.</p>
+      <ul class="pain-list reveal">
+        <li><b>Устали от города</b> — отключиться от уведомлений, пробок и людей</li>
+        <li><b>Хочется собрать семью</b> — вечер у огня и вид на природу</li>
+        <li><b>Есть повод</b> — свидание, юбилей, важная дата</li>
+        <li><b>Хочется шашлыка у огня</b> — готовим и привозим за вас</li>
+        <li><b>Нужна перезагрузка</b> — сменить ритм, а не локацию</li>
+        <li><b>Надоели «как обычно» выходные</b> — река, костёр и чан вместо ТЦ</li>
+      </ul>
+      <div class="dd-wrap reveal">
+        <button class="btn-green" id="bookBtn" type="button">Забронировать <span class="caret">▾</span></button>
+        <div class="dd-menu" id="bookMenu">
+          <div class="dd-hint">Выберите формат отдыха:</div>
+          <button class="dd-item" type="button" data-vk="Вдвоём">💑 Вдвоём</button>
+          <button class="dd-item" type="button" data-vk="Семья с детьми">👨‍👩‍👧‍👦 Семья с детьми</button>
+          <button class="dd-item" type="button" data-vk="Компания друзей">🔥 Компания друзей</button>
+          <button class="dd-item" type="button" data-vk="Отдых с шашлыком от «Не Травы»">🍢 Отдых + шашлык «Не Трава»</button>
+          <button class="dd-item" type="button" data-vk="Свой формат / вопрос">💬 Свой формат или вопрос</button>
+        </div>
+      </div>
+      <p class="note" style="margin-top:14px">Нажмите — выберете формат, и мы откроем чат VK с готовой заявкой</p>
+    </div>
   </div>
 </div></section>
 
@@ -540,6 +596,82 @@ document.getElementById('lead-form').addEventListener('submit', function(e){
   document.getElementById('form-ok').style.display = 'block';
   f.reset();
 });
+
+// Слайдер в блоке «Тишина — это про вас»
+(function(){
+  var slider = document.getElementById('painSlider');
+  if(!slider) return;
+  var track = slider.querySelector('.slider-track');
+  var slides = slider.querySelectorAll('.slide');
+  var dotsBox = slider.querySelector('.slider-dots');
+  var prev = slider.querySelector('.prev');
+  var next = slider.querySelector('.next');
+  var idx = 0, timer = null;
+
+  slides.forEach(function(_, i){
+    var d = document.createElement('button');
+    d.type = 'button';
+    d.setAttribute('aria-label', 'Слайд ' + (i+1));
+    if(i === 0) d.classList.add('active');
+    d.addEventListener('click', function(){ go(i); restart(); });
+    dotsBox.appendChild(d);
+  });
+  var dots = dotsBox.querySelectorAll('button');
+
+  function go(i){
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    dots.forEach(function(d, j){ d.classList.toggle('active', j === idx); });
+  }
+  function restart(){
+    if(timer) clearInterval(timer);
+    timer = setInterval(function(){ go(idx + 1); }, 4500);
+  }
+  prev.addEventListener('click', function(){ go(idx - 1); restart(); });
+  next.addEventListener('click', function(){ go(idx + 1); restart(); });
+
+  // свайп для мобильных
+  var startX = null;
+  slider.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  slider.addEventListener('touchend', function(e){
+    if(startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx) > 40){ go(dx < 0 ? idx + 1 : idx - 1); restart(); }
+    startX = null;
+  }, {passive:true});
+
+  restart();
+})();
+
+// Выпадающее меню «Забронировать» → VK
+(function(){
+  var wrap = document.querySelector('.dd-wrap');
+  if(!wrap) return;
+  var btn = document.getElementById('bookBtn');
+  var menu = document.getElementById('bookMenu');
+
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    wrap.classList.toggle('open');
+  });
+
+  menu.querySelectorAll('.dd-item').forEach(function(item){
+    item.addEventListener('click', function(){
+      var format = item.getAttribute('data-vk') || '';
+      var msg = 'Здравствуйте! Хочу забронировать дом в глэмпинге «Тишина».';
+      if(format) msg += '\nФормат отдыха: ' + format;
+      window.open('https://vk.com/tishina.glemp', '_blank');
+      wrap.classList.remove('open');
+    });
+  });
+
+  document.addEventListener('click', function(e){
+    if(!wrap.contains(e.target)) wrap.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') wrap.classList.remove('open');
+  });
+})();
 </script>
 </body>
 </html>
