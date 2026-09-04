@@ -139,6 +139,7 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .dd-wrap.open .caret{transform:rotate(180deg)}
 .dd-menu{position:absolute;top:calc(100% + 10px);left:0;min-width:320px;background:#fff;border:1px solid rgba(28,25,23,.12);border-radius:16px;box-shadow:0 24px 60px rgba(28,25,23,.22);padding:8px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .22s;z-index:40}
 .dd-wrap.open .dd-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.dd-wrap.open-up .dd-menu{top:auto;bottom:calc(100% + 10px)}
 .dd-item{display:block;width:100%;text-align:left;background:none;border:none;padding:12px 14px;border-radius:10px;font-size:15px;font-weight:600;color:#1c1917;cursor:pointer;font-family:inherit}
 .dd-item:hover{background:rgba(34,197,94,.1);color:#15803d}
 .dd-hint{font-size:12.5px;color:#a8a29e;padding:8px 14px 6px}
@@ -652,6 +653,14 @@ document.getElementById('lead-form').addEventListener('submit', function(e){
 
   btn.addEventListener('click', function(e){
     e.stopPropagation();
+    // если снизу мало места — открываем меню вверх
+    var r = btn.getBoundingClientRect();
+    var menuH = menu.offsetHeight || 320;
+    if(window.innerHeight - r.bottom < menuH + 24){
+      wrap.classList.add('open-up');
+    } else {
+      wrap.classList.remove('open-up');
+    }
     wrap.classList.toggle('open');
   });
 
