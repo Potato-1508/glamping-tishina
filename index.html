@@ -84,7 +84,7 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .hero::before{content:'';position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.15),transparent 65%);top:-340px;right:-200px;filter:blur(10px)}
 .hero::after{content:'';position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.1),transparent 60%);bottom:-300px;left:-160px;filter:blur(10px)}
 .hero-dots{position:absolute;top:40px;left:0;right:0;height:100%;pointer-events:none;opacity:.35;background-image:radial-gradient(rgba(28,25,23,.12) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(180deg,rgba(0,0,0,.6),transparent 45%)}
-.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:stretch}
 .hero .dd-wrap{margin:4px 0 6px}
 .tag{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.35);color:#c2410c;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;margin-bottom:26px}
 .hero-tents{display:block;width:460px;height:auto;margin-bottom:20px;opacity:.95}
@@ -102,7 +102,11 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .btn.ghost{background:rgba(255,255,255,.7);border:1px solid rgba(28,25,23,.2);color:#1c1917;box-shadow:none}
 .btn.ghost:hover{border-color:#f97316;color:#f97316}
 .note{font-size:13.5px;color:#78716c}
-.hero-media{position:relative}
+.hero-media{position:relative;display:flex;align-items:stretch}
+.hero-media .slider{flex:1 1 auto;height:100%}
+.hero-media .slider-track{height:100%}
+.hero-media .slide{height:100%}
+.hero-media .slide img{height:100%;object-fit:cover}
 .hero-media img{width:100%;border-radius:20px;display:block;border:1px solid rgba(28,25,23,.1);box-shadow:0 30px 80px rgba(87,83,78,.25)}
 .hero-media .corner{position:absolute;width:26px;height:26px;border:3px solid #f97316}
 .hero-media .corner.tl{top:-8px;left:-8px;border-right:none;border-bottom:none;border-radius:8px 0 0 0}
@@ -288,6 +292,8 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
 @media(max-width:960px){
   .hero{padding:64px 0}
   .hero-in{grid-template-columns:1fr;gap:36px}
+  .hero-media{display:block}
+  .hero-media .slider{height:auto;flex:none}
   .hero h1{font-size:38px}
   .pain-split{grid-template-columns:1fr;gap:36px}
   .pain-split h2{font-size:32px}
