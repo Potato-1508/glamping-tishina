@@ -130,10 +130,11 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .hero-media .slider img{box-shadow:none;border-radius:0}
 .slide-cap{position:absolute;left:0;right:0;bottom:0;padding:40px 24px 20px;background:linear-gradient(180deg,transparent,rgba(20,16,12,.78));color:#fff;font-size:15.5px;font-weight:600;line-height:1.45}
 .slide-cap b{display:block;font-size:17.5px;margin-bottom:2px}
-.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:#1c1917;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:background .15s}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;border:1px solid rgba(28,25,23,.1);background:rgba(255,255,255,.82);color:#1c1917;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:0 3px 12px rgba(0,0,0,.14);transition:background .15s;z-index:2;font-weight:400}
+.slider-arrow svg{width:15px;height:15px;display:block}
 .slider-arrow:hover{background:#fff}
-.slider-arrow.prev{left:14px}
-.slider-arrow.next{right:14px}
+.slider-arrow.prev{left:12px}
+.slider-arrow.next{right:12px}
 .slider-dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:7px}
 .slider-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.5);cursor:pointer;padding:0;transition:all .2s}
 .slider-dots button.active{background:#fff;width:22px;border-radius:99px}
@@ -416,8 +417,8 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
           <div class="slide"><picture><source srcset="img/house.webp" type="image/webp"><img loading="lazy" alt="Дом вечером" src="img/house.jpg"></picture><div class="slide-cap"><b>Дом вечером</b>Подсветка, тишина и природа</div></div>
           <div class="slide"><picture><source srcset="img/chan_zone.webp" type="image/webp"><img loading="lazy" alt="Чан на закате" src="img/chan_zone.jpg"></picture><div class="slide-cap"><b>Чан на закате</b>Пар, дым и звёздное небо</div></div>
         </div>
-        <button class="slider-arrow prev" type="button" aria-label="Назад">‹</button>
-        <button class="slider-arrow next" type="button" aria-label="Вперёд">›</button>
+        <button class="slider-arrow prev" type="button" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 5.5 8 12 14.5 18.5"/></svg></button>
+        <button class="slider-arrow next" type="button" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9.5 5.5 16 12 9.5 18.5"/></svg></button>
         <div class="slider-dots"></div>
       </div>
       <div class="hero-tags">
@@ -533,8 +534,8 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
           <div class="slide"><picture><source srcset="img/interior.webp" type="image/webp"><img loading="lazy" alt="Интерьер дома" src="img/interior.jpg"></picture><div class="slide-cap"><b>Внутри — уют</b>Кухня, тёплый дом и продуманные детали</div></div>
           <div class="slide"><picture><source srcset="img/chan_zone.webp" type="image/webp"><img loading="lazy" alt="Чан на закате" src="img/chan_zone.jpg"></picture><div class="slide-cap"><b>Чан на закате</b>Пар, дым и звёздное небо</div></div>
         </div>
-        <button class="slider-arrow prev" type="button" aria-label="Назад">‹</button>
-        <button class="slider-arrow next" type="button" aria-label="Вперёд">›</button>
+        <button class="slider-arrow prev" type="button" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 5.5 8 12 14.5 18.5"/></svg></button>
+        <button class="slider-arrow next" type="button" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9.5 5.5 16 12 9.5 18.5"/></svg></button>
         <div class="slider-dots"></div>
       </div>
     </div>
