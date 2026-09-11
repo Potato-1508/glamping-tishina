@@ -179,6 +179,27 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .break-row.total{border-top:2px solid rgba(28,25,23,.12);margin-top:8px;padding-top:12px;font-size:16px;font-weight:900;color:#1c1917}
 .break-row.total .b-val{color:#f97316;font-size:24px;letter-spacing:-.5px}
 
+/* ===== calculator hero (блок 1: макет с галочками) ===== */
+.calc-card-hero{background:#fff;border:1px solid rgba(28,25,23,.12);border-radius:20px;padding:26px;box-shadow:0 18px 44px rgba(87,83,78,.14)}
+.calc-tents{display:block;width:340px;max-width:100%;height:auto;margin:0 auto 18px}
+.date-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:#57534e;color:#fff;font-weight:800;font-size:16px;padding:14px 18px;border:none;border-radius:13px;cursor:pointer;font-family:inherit;transition:filter .15s}
+.date-btn:hover{filter:brightness(1.12)}
+.date-btn .caret{transition:transform .2s}
+.date-btn:disabled{opacity:.6;cursor:not-allowed}
+.opt-list2{list-style:none;margin:14px 0 16px}
+.opt2{display:flex;align-items:center;gap:10px;margin-bottom:9px;cursor:pointer}
+.opt2-name{flex:1;background:#57534e;color:#fff;border-radius:12px;padding:13px 16px;font-size:15px;font-weight:700;text-align:left;font-family:inherit}
+.opt2-price{background:#57534e;color:#fff;border-radius:12px;padding:13px 14px;font-size:15px;font-weight:800;min-width:96px;text-align:center;font-family:inherit}
+.opt2-check{flex:0 0 auto;width:38px;height:38px;border-radius:50%;border:2px solid #57534e;background:#fff;color:#fff;font-size:17px;font-weight:900;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;line-height:1;padding:0;transition:all .15s}
+.opt2-check:hover{border-color:#f97316}
+.opt2-check.on{background:#57534e;border-color:#57534e;color:#fff}
+.opt2.off .opt2-name,.opt2.off .opt2-price{opacity:.4}
+.opt2.off .opt2-check{opacity:.4;pointer-events:none}
+.total-pill{display:block;width:100%;background:#57534e;color:#fff;border-radius:13px;padding:14px 18px;font-size:20px;font-weight:900;text-align:center;margin:16px 0 12px;letter-spacing:.5px}
+.btn-book{width:100%;justify-content:center}
+.btn-book:disabled{opacity:.6;cursor:not-allowed}
+.calc-note{margin-top:12px;font-size:12.5px;color:#a8a29e;text-align:center;font-weight:600}
+
 /* ===== how (features) ===== */
 .how{padding:88px 0}
 .how h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
@@ -380,9 +401,35 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
       </div>
     </div>
     <div>
-      <img class="hero-tents" src="img/tents.webp" alt="" width="460" height="109">
-      <div class="tag">Река Дон в 10 минутах от Воронежа · Бронирование через VK</div>
-      <button class="btn-green" id="heroBookBtn" type="button">Забронировать</button>
+      <div class="calc-card-hero reveal" id="calcCardHero">
+        <img class="calc-tents" src="img/tents.webp" alt="" width="340" height="80">
+        <button class="date-btn" id="dateBtnH" type="button" disabled>Выбрать дату <span class="caret">▾</span></button>
+        <ul class="opt-list2">
+          <li class="opt2" id="rowHouseH">
+            <span class="opt2-name">Домик</span>
+            <span class="opt2-price" id="pHouseH">6 900 ₽</span>
+            <button class="opt2-check on" type="button" id="cHouseH" aria-label="Выбрать домик">✓</button>
+          </li>
+          <li class="opt2" id="rowChanH">
+            <span class="opt2-name">Чан</span>
+            <span class="opt2-price">5 000 ₽</span>
+            <button class="opt2-check" type="button" id="cChanH" aria-label="Выбрать чан">✓</button>
+          </li>
+          <li class="opt2" id="rowChanDecH">
+            <span class="opt2-name">Чан с украшениями</span>
+            <span class="opt2-price">6 500 ₽</span>
+            <button class="opt2-check on" type="button" id="cChanDecH" aria-label="Выбрать чан с украшениями">✓</button>
+          </li>
+          <li class="opt2" id="rowRobeH">
+            <span class="opt2-name">Халаты</span>
+            <span class="opt2-price">1 000 ₽</span>
+            <button class="opt2-check on" type="button" id="cRobeH" aria-label="Выбрать халаты">✓</button>
+          </li>
+        </ul>
+        <div class="total-pill" id="totalPillH">14 400 ₽</div>
+        <button class="btn-green btn-book" id="bookBtnH" type="button" disabled>Забронировать</button>
+        <p class="calc-note">Обратите внимание, цена может меняться в зависимости от дня недели</p>
+      </div>
     </div>
   </div>
 </section>
@@ -891,6 +938,61 @@ document.getElementById('lead-form').addEventListener('submit', function(e){
     var el = document.getElementById('form');
     if(el) el.scrollIntoView({behavior:'smooth'});
   });
+})();
+
+// Калькулятор hero (блок 1: галочки + автосумма)
+(function(){
+  var card = document.getElementById('calcCardHero');
+  if(!card) return;
+
+  var HOUSE_PRICE = 6900;          // будни; выбор даты пока не активен
+  var CHAN_PRICE = 5000, CHANDEC_PRICE = 6500, ROBE_PRICE = 1000;
+
+  var rows = {
+    house:  {el: document.getElementById('rowHouseH'),   btn: document.getElementById('cHouseH'),   on: true},
+    chan:   {el: document.getElementById('rowChanH'),    btn: document.getElementById('cChanH'),    on: false},
+    chanDec:{el: document.getElementById('rowChanDecH'), btn: document.getElementById('cChanDecH'), on: true},
+    robe:   {el: document.getElementById('rowRobeH'),    btn: document.getElementById('cRobeH'),    on: true}
+  };
+  var pill = document.getElementById('totalPillH');
+
+  function fmt(n){
+    return n.toLocaleString('ru-RU') + ' ₽';
+  }
+
+  function render(){
+    var total = (rows.house.on ? HOUSE_PRICE : 0)
+              + (rows.chan.on ? CHAN_PRICE : 0)
+              + (rows.chanDec.on ? CHANDEC_PRICE : 0)
+              + (rows.robe.on ? ROBE_PRICE : 0);
+    pill.textContent = fmt(total);
+    for(var k in rows){
+      rows[k].btn.classList.toggle('on', rows[k].on);
+    }
+    // чан и чан с украшениями — взаимоисключающие
+    rows.chan.el.classList.toggle('off', rows.chanDec.on);
+    rows.chanDec.el.classList.toggle('off', rows.chan.on);
+  }
+
+  function toggle(key){
+    rows[key].on = !rows[key].on;
+    if(key === 'chan' && rows.chan.on) rows.chanDec.on = false;
+    if(key === 'chanDec' && rows.chanDec.on) rows.chan.on = false;
+    render();
+  }
+
+  Object.keys(rows).forEach(function(k){
+    rows[k].el.addEventListener('click', function(){ toggle(k); });
+    rows[k].btn.addEventListener('click', function(e){ e.stopPropagation(); toggle(k); });
+  });
+
+  // «Выбрать дату» и «Забронировать» пока не активны
+  var dateBtn = document.getElementById('dateBtnH');
+  if(dateBtn) dateBtn.disabled = true;
+  var bookBtnH = document.getElementById('bookBtnH');
+  if(bookBtnH) bookBtnH.disabled = true;
+
+  render();
 })();
 </script>
 </body>
