@@ -75,6 +75,9 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .header-phone{display:flex;align-items:center;gap:8px;border:1px solid rgba(28,25,23,.25);color:#1c1917;font-weight:700;font-size:14px;padding:8px 14px;border-radius:10px;transition:all .15s}
 .header-phone:hover{border-color:#f97316;color:#f97316}
 .header-phone svg{display:block}
+.header-tel{display:flex;align-items:center;gap:9px;color:#1c1917;font-weight:800;font-size:15px;padding:9px 16px;border-radius:12px;border:1.5px solid rgba(249,115,22,.45);background:rgba(249,115,22,.07);text-decoration:none;transition:all .15s;letter-spacing:.2px;white-space:nowrap}
+.header-tel svg{display:block;flex:none}
+.header-tel:hover{border-color:#f97316;background:rgba(249,115,22,.14);color:#f97316}
 
 /* ===== hero ===== */
 .hero{position:relative;padding:96px 0 88px;overflow:hidden}
@@ -297,6 +300,9 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   .pain-split,.ch-grid,.step-grid,.hw-grid{grid-template-columns:1fr}
   .gal-grid{grid-template-columns:1fr}
   .header-phone span{display:none}
+  .header-tel span{display:none}
+  .header-tel{padding:10px;border-radius:50%;border-color:rgba(249,115,22,.45)}
+  .header-right{gap:8px}
   .slide img{height:280px}
   .pain-split h2,.how h2,.steps h2,.how-work h2,.why h2,.gallery h2,.faq h2,.form-sec h2{font-size:27px;line-height:1.32;letter-spacing:-.4px;text-wrap:balance}
   .hero h1{text-wrap:balance}
@@ -372,6 +378,10 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
       <img src="img/logo-full.webp" alt="Глэмпинг Тишина" width="110" height="80">
     </a>
     <div class="header-right">
+      <a class="header-tel" href="tel:+79507500707" aria-label="Позвонить: +7 950 750-07-07">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#f97316"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <span>+7 (950) 750-07-07</span>
+      </a>
       <a class="header-phone" href="https://vk.com/tishina.glemp" target="_blank" rel="noopener">
         <span>Наш</span>
         <svg width="25" height="25" viewBox="0 0 24 24" fill="#0077ff"><path d="M13.16 17.6c-5.28 0-8.5-3.62-8.63-9.65h2.71c.09 4.45 2.05 6.33 3.6 6.72V7.95h2.5v3.84c1.53-.16 3.14-1.92 3.68-3.84h2.5c-.42 2.37-2.17 4.13-3.41 4.85 1.24.58 3.22 2.1 3.98 4.8h-2.75c-.6-1.86-2.06-3.3-4-3.5v3.5h-.18z"/></svg>
