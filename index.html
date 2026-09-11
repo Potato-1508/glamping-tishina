@@ -102,13 +102,16 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .btn.ghost{background:rgba(255,255,255,.7);border:1px solid rgba(28,25,23,.2);color:#1c1917;box-shadow:none}
 .btn.ghost:hover{border-color:#f97316;color:#f97316}
 .note{font-size:13.5px;color:#78716c}
-.hero-media{position:relative;display:flex;align-items:stretch}
-.hero-media .slider{flex:1 1 auto;height:100%}
+.hero-media{position:relative;display:flex;flex-direction:column;gap:16px}
+.hero-media .slider{flex:none;height:520px}
 .hero-media .slider-track{height:100%}
 .hero-media .slide{height:100%}
 .hero-media .slide img{height:100%;object-fit:cover}
 .hero-media img{width:100%;border-radius:20px;display:block;border:1px solid rgba(28,25,23,.1);box-shadow:0 30px 80px rgba(87,83,78,.25)}
 .hero-media .corner{position:absolute;width:26px;height:26px;border:3px solid #f97316}
+.hero-tags{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-tag{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.72);border:1px solid rgba(28,25,23,.12);border-radius:14px;padding:11px 14px;font-size:13.5px;font-weight:700;color:#1c1917;box-shadow:0 4px 14px rgba(87,83,78,.08)}
+.hero-tag svg{display:block;flex:none}
 .hero-media .corner.tl{top:-8px;left:-8px;border-right:none;border-bottom:none;border-radius:8px 0 0 0}
 .hero-media .corner.br{bottom:-8px;right:-8px;border-left:none;border-top:none;border-radius:0 0 8px 0}
 .hero-media-cap{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:#78716c}
@@ -416,6 +419,12 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
         <button class="slider-arrow prev" type="button" aria-label="Назад">‹</button>
         <button class="slider-arrow next" type="button" aria-label="Вперёд">›</button>
         <div class="slider-dots"></div>
+      </div>
+      <div class="hero-tags">
+        <div class="hero-tag"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M12 10v9"/></svg>Панорамные окна</div>
+        <div class="hero-tag"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-6-4.3-6-9.5A6 6 0 0 1 12 6.5a6 6 0 0 1 6 6C18 17.7 12 22 12 22z"/><circle cx="12" cy="11" r="2.5"/></svg>Костровая зона</div>
+        <div class="hero-tag"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10c0-4 3.5-6 8-6s8 2 8 6"/><path d="M4 10h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-4z"/><path d="M9 20h6"/></svg>Банный чан</div>
+        <div class="hero-tag"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>10 минут от города</div>
       </div>
     </div>
     <div>
