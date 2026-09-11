@@ -402,35 +402,70 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
       </div>
     </div>
     <div>
-      <div class="calc-card-hero reveal" id="calcCardHero">
-        <img class="calc-tents" src="img/tents.webp" alt="" width="340" height="80">
-        <button class="date-btn" id="dateBtnH" type="button" disabled>Выбрать дату <span class="caret">▾</span></button>
-        <ul class="opt-list2">
-          <li class="opt2" id="rowHouseH">
-            <span class="opt2-name">Домик</span>
-            <span class="opt2-price" id="pHouseH">6 900 ₽</span>
-            <button class="opt2-check on" type="button" id="cHouseH" aria-label="Выбрать домик">✓</button>
+      <img class="hero-tents" src="img/tents.webp" alt="" width="460" height="109">
+      <div class="tag">Река Дон в 10 минутах от Воронежа · Бронирование через VK</div>
+      <div class="calc-card reveal" id="calcCardH">
+        <div class="calc-head">
+          <div>
+            <div class="calc-title">Рассчитайте стоимость</div>
+            <div class="calc-sub">цена зависит от дня недели</div>
+          </div>
+          <div class="calc-total" id="calcTotalH">6 900 ₽</div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-label">День недели</div>
+          <div class="day-picker" id="dayPickerH">
+            <button type="button" data-day="mon">Пн</button>
+            <button type="button" data-day="tue">Вт</button>
+            <button type="button" data-day="wed">Ср</button>
+            <button type="button" data-day="thu">Чт</button>
+            <button type="button" data-day="fri">Пт</button>
+            <button type="button" data-day="sat">Сб</button>
+            <button type="button" data-day="sun">Вс</button>
+          </div>
+        </div>
+
+        <div class="guest-row">
+          <div>
+            <div class="calc-label">Гости</div>
+            <div class="guest-note">первые 2 включены · далее +1 000 ₽ за гостя</div>
+          </div>
+          <div class="guest-stepper">
+            <button type="button" id="guestMinusH" aria-label="Меньше гостей">−</button>
+            <span class="guest-num" id="guestNumH">2</span>
+            <button type="button" id="guestPlusH" aria-label="Больше гостей">+</button>
+          </div>
+        </div>
+
+        <ul class="opt-list">
+          <li class="opt">
+            <input type="checkbox" id="optHouseH" checked>
+            <label class="opt-name" for="optHouseH">А-фрейм дом<span class="opt-sub">вс–чт 6 900 ₽ · пт 7 900 ₽ · сб 9 900 ₽</span></label>
+            <span class="opt-price" id="housePriceH">6 900 ₽</span>
           </li>
-          <li class="opt2" id="rowChanH">
-            <span class="opt2-name">Чан</span>
-            <span class="opt2-price">5 000 ₽</span>
-            <button class="opt2-check" type="button" id="cChanH" aria-label="Выбрать чан">✓</button>
+          <li class="opt">
+            <input type="checkbox" id="optChanH">
+            <label class="opt-name" for="optChanH">Банный чан<span class="opt-sub">на дровах, под открытым небом</span></label>
+            <span class="opt-price">5 000 ₽</span>
           </li>
-          <li class="opt2" id="rowChanDecH">
-            <span class="opt2-name">Чан с украшениями</span>
-            <span class="opt2-price">6 500 ₽</span>
-            <button class="opt2-check on" type="button" id="cChanDecH" aria-label="Выбрать чан с украшениями">✓</button>
-          </li>
-          <li class="opt2" id="rowRobeH">
-            <span class="opt2-name">Халаты</span>
-            <span class="opt2-price">1 000 ₽</span>
-            <button class="opt2-check on" type="button" id="cRobeH" aria-label="Выбрать халаты">✓</button>
+          <li class="opt" id="decorWrapH">
+            <input type="checkbox" id="optDecorH">
+            <label class="opt-name" for="optDecorH">Чан с украшениями<span class="opt-sub">лепестки, свечи, декор</span></label>
+            <span class="opt-price">+1 500 ₽</span>
           </li>
         </ul>
-        <div class="total-pill" id="totalPillH">14 400 ₽</div>
-        <button class="btn-green btn-book" id="bookBtnH" type="button" disabled>Забронировать</button>
-        <p class="calc-note">Обратите внимание, цена может меняться в зависимости от дня недели</p>
+
+        <div class="breakdown" id="breakdownH">
+          <div class="break-row" id="brHouseH"><span>Домик · <span id="brDayH">вс–чт</span></span><span id="brHouseValH">6 900 ₽</span></div>
+          <div class="break-row hidden" id="brGuestsH"><span>Доп. гости · <span id="brGuestNH">0</span> чел.</span><span id="brGuestsValH">0 ₽</span></div>
+          <div class="break-row hidden" id="brChanH"><span>Банный чан</span><span>5 000 ₽</span></div>
+          <div class="break-row hidden" id="brDecorH"><span>Украшения к чану</span><span>1 500 ₽</span></div>
+          <div class="break-row total"><span>Итого</span><span class="b-val" id="calcTotalBottomH">6 900 ₽</span></div>
+        </div>
       </div>
+      <button class="btn-green btn-book" id="bookBtnH" type="button">Забронировать</button>
+      <p class="note" style="margin-top:14px;color:#78716c">Выберите опции выше — перенесём их в заявку вместе с суммой</p>
     </div>
   </div>
 </section>
@@ -941,59 +976,110 @@ document.getElementById('lead-form').addEventListener('submit', function(e){
   });
 })();
 
-// Калькулятор hero (блок 1: галочки + автосумма)
+// Калькулятор hero (блок 1: копия карточки из блока 2)
 (function(){
-  var card = document.getElementById('calcCardHero');
+  var card = document.getElementById('calcCardH');
   if(!card) return;
 
-  var HOUSE_PRICE = 6900;          // будни; выбор даты пока не активен
-  var CHAN_PRICE = 5000, CHANDEC_PRICE = 6500, ROBE_PRICE = 1000;
+  var PRICES = {mon:6900, tue:6900, wed:6900, thu:6900, fri:7900, sat:9900, sun:6900};
+  var DAY_LABEL = {mon:'вс–чт', tue:'вс–чт', wed:'вс–чт', thu:'вс–чт', fri:'пт', sat:'сб', sun:'вс–чт'};
+  var CHAN_PRICE = 5000, DECOR_PRICE = 1500, GUEST_EXTRA = 1000, GUEST_BASE = 2, GUEST_MAX = 10;
 
-  var rows = {
-    house:  {el: document.getElementById('rowHouseH'),   btn: document.getElementById('cHouseH'),   on: true},
-    chan:   {el: document.getElementById('rowChanH'),    btn: document.getElementById('cChanH'),    on: false},
-    chanDec:{el: document.getElementById('rowChanDecH'), btn: document.getElementById('cChanDecH'), on: true},
-    robe:   {el: document.getElementById('rowRobeH'),    btn: document.getElementById('cRobeH'),    on: true}
-  };
-  var pill = document.getElementById('totalPillH');
+  var days = ['sun','mon','tue','wed','thu','fri','sat'];
+  var dayBtns = card.querySelectorAll('.day-picker button');
+  var currentDay = days[new Date().getDay()];
+
+  var guestNumEl = document.getElementById('guestNumH');
+  var guests = GUEST_BASE;
+
+  var houseInput = document.getElementById('optHouseH');
+  var chanInput = document.getElementById('optChanH');
+  var decorInput = document.getElementById('optDecorH');
+  var decorWrap = document.getElementById('decorWrapH');
+
+  var totalTop = document.getElementById('calcTotalH');
+  var totalBottom = document.getElementById('calcTotalBottomH');
+  var housePriceEl = document.getElementById('housePriceH');
+  var lastTotal = 0;
 
   function fmt(n){
     return n.toLocaleString('ru-RU') + ' ₽';
   }
 
-  function render(){
-    var total = (rows.house.on ? HOUSE_PRICE : 0)
-              + (rows.chan.on ? CHAN_PRICE : 0)
-              + (rows.chanDec.on ? CHANDEC_PRICE : 0)
-              + (rows.robe.on ? ROBE_PRICE : 0);
-    pill.textContent = fmt(total);
-    for(var k in rows){
-      rows[k].btn.classList.toggle('on', rows[k].on);
-    }
-    // чан и чан с украшениями — взаимоисключающие
-    rows.chan.el.classList.toggle('off', rows.chanDec.on);
-    rows.chanDec.el.classList.toggle('off', rows.chan.on);
-  }
-
-  function toggle(key){
-    rows[key].on = !rows[key].on;
-    if(key === 'chan' && rows.chan.on) rows.chanDec.on = false;
-    if(key === 'chanDec' && rows.chanDec.on) rows.chan.on = false;
+  function setDay(day){
+    currentDay = day;
+    dayBtns.forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-day') === day);
+    });
     render();
   }
 
-  Object.keys(rows).forEach(function(k){
-    rows[k].el.addEventListener('click', function(){ toggle(k); });
-    rows[k].btn.addEventListener('click', function(e){ e.stopPropagation(); toggle(k); });
+  function setGuests(n){
+    guests = Math.max(GUEST_BASE, Math.min(GUEST_MAX, n));
+    guestNumEl.textContent = guests;
+    render();
+  }
+
+  function render(){
+    var houseOn = houseInput.checked;
+    var chanOn = chanInput.checked;
+
+    // украшения доступны только при выбранном чане
+    if(!chanOn && decorInput.checked) decorInput.checked = false;
+    decorWrap.classList.toggle('off', !chanOn);
+    decorInput.disabled = !chanOn;
+
+    var houseTotal = houseOn ? PRICES[currentDay] : 0;
+    var guestsExtra = guests > GUEST_BASE ? (guests - GUEST_BASE) * GUEST_EXTRA : 0;
+    var chanTotal = chanOn ? CHAN_PRICE : 0;
+    var decorTotal = decorInput.checked ? DECOR_PRICE : 0;
+    var total = houseTotal + guestsExtra + chanTotal + decorTotal;
+    lastTotal = total;
+
+    totalTop.textContent = fmt(total);
+    totalBottom.textContent = fmt(total);
+    housePriceEl.textContent = fmt(PRICES[currentDay]);
+
+    document.getElementById('brDayH').textContent = DAY_LABEL[currentDay];
+    document.getElementById('brHouseValH').textContent = fmt(houseTotal);
+    document.getElementById('brHouseH').classList.toggle('hidden', !houseOn);
+
+    document.getElementById('brGuestNH').textContent = Math.max(0, guests - GUEST_BASE);
+    document.getElementById('brGuestsValH').textContent = fmt(guestsExtra);
+    document.getElementById('brGuestsH').classList.toggle('hidden', guestsExtra === 0);
+
+    document.getElementById('brChanH').classList.toggle('hidden', !chanOn);
+    document.getElementById('brDecorH').classList.toggle('hidden', decorTotal === 0);
+  }
+
+  dayBtns.forEach(function(b){
+    b.addEventListener('click', function(){ setDay(b.getAttribute('data-day')); });
   });
 
-  // «Выбрать дату» и «Забронировать» пока не активны
-  var dateBtn = document.getElementById('dateBtnH');
-  if(dateBtn) dateBtn.disabled = true;
-  var bookBtnH = document.getElementById('bookBtnH');
-  if(bookBtnH) bookBtnH.disabled = true;
+  document.getElementById('guestMinusH').addEventListener('click', function(){ setGuests(guests - 1); });
+  document.getElementById('guestPlusH').addEventListener('click', function(){ setGuests(guests + 1); });
 
-  render();
+  houseInput.addEventListener('change', render);
+  chanInput.addEventListener('change', render);
+  decorInput.addEventListener('change', render);
+
+  // hero: «Забронировать» → переносим выбор и сумму в форму заявки
+  var bookBtnH = document.getElementById('bookBtnH');
+  if(bookBtnH) bookBtnH.addEventListener('click', function(){
+    var dayName = {mon:'Пн', tue:'Вт', wed:'Ср', thu:'Чт', fri:'Пт', sat:'Сб', sun:'Вс'}[currentDay];
+    var parts = [];
+    if(houseInput.checked) parts.push('домик ' + fmt(PRICES[currentDay]));
+    if(chanInput.checked) parts.push('чан 5 000 ₽');
+    if(decorInput.checked) parts.push('украшения +1 500 ₽');
+    var combo = 'день: ' + dayName + ', гости: ' + guests;
+    if(parts.length) combo += ', ' + parts.join(', ');
+    document.getElementById('formCombo').value = combo;
+    document.getElementById('formTotal').value = fmt(lastTotal);
+    var el = document.getElementById('form');
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  });
+
+  setDay(currentDay);
 })();
 </script>
 </body>
