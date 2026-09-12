@@ -259,6 +259,29 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .why-big h3{color:#c2410c;font-size:20px;font-weight:800;margin-bottom:10px}
 .why-big p{font-size:15.5px;color:#44403c}
 
+/* ===== contacts (блок 3: карта + контакты) ===== */
+.contacts{padding:88px 0}
+.contacts h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
+.contacts .sec-intro{color:#57534e}
+.cont-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;margin-top:40px;align-items:stretch}
+.cont-map{position:relative;overflow:hidden;border-radius:18px;border:1px solid rgba(28,25,23,.12);box-shadow:0 18px 44px rgba(87,83,78,.14);min-height:420px}
+.cont-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.cont-card{background:rgba(255,255,255,.8);border:1px solid rgba(28,25,23,.12);border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:22px}
+.cont-card h3{font-size:20px;font-weight:800;letter-spacing:-.3px}
+.cont-item{display:flex;gap:14px;align-items:flex-start}
+.cont-item .ci-ic{flex:0 0 auto;width:44px;height:44px;border-radius:13px;background:rgba(249,115,22,.12);display:flex;align-items:center;justify-content:center}
+.cont-item .ci-ic svg{width:21px;height:21px;stroke:#f97316;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cont-item b{display:block;font-size:13px;color:#a8a29e;font-weight:600;letter-spacing:.4px;margin-bottom:3px}
+.cont-item a,.cont-item span{font-size:16px;font-weight:700;color:#1c1917;text-decoration:none}
+.cont-item a:hover{color:#ea580c}
+.cont-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:8px}
+.cont-link{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:12px;font-size:14px;font-weight:800;text-decoration:none;transition:all .15s}
+.cont-link.ym{border:1.5px solid rgba(249,115,22,.5);background:rgba(249,115,22,.08);color:#c2410c}
+.cont-link.ym:hover{background:rgba(249,115,22,.18)}
+.cont-link.gm{border:1.5px solid rgba(28,25,23,.18);background:rgba(255,255,255,.7);color:#1c1917}
+.cont-link.gm:hover{background:rgba(28,25,23,.06)}
+.cont-link svg{width:16px;height:16px;flex:0 0 auto}
+
 /* ===== gallery ===== */
 .gallery{padding:88px 0;background:rgba(255,255,255,.4);border-top:1px solid rgba(28,25,23,.08);border-bottom:1px solid rgba(28,25,23,.08)}
 .gallery h2{font-size:40px;font-weight:900;letter-spacing:-1px;margin-bottom:14px}
@@ -305,6 +328,8 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   .hw-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
   .gal-grid{grid-template-columns:1fr 1fr}
+  .cont-grid{grid-template-columns:1fr}
+  .cont-map{min-height:320px}
 }
 @media(max-width:600px){
   .pain-split,.ch-grid,.step-grid,.hw-grid{grid-template-columns:1fr}
@@ -551,6 +576,35 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
         <li><b>Надоели «как обычно» выходные</b> — река, костёр и чан вместо ТЦ</li>
       </ul>
       
+    </div>
+  </div>
+</div></section>
+
+<section class="contacts"><div class="wrap">
+  <h2 class="reveal">Как нас найти</h2>
+  <p class="sec-intro reveal">Глэмпинг «Тишина» — Воронежская область, берег реки Дон. Всего 10 минут от города.</p>
+  <div class="cont-grid">
+    <div class="cont-map reveal">
+      <iframe src="https://yandex.ru/map-widget/v1/?ll=39.0566106%2C51.6404361&z=15&pt=39.0566106,51.6404361,pm2rdl" allowfullscreen title="Глэмпинг Тишина на карте"></iframe>
+    </div>
+    <div class="cont-card reveal">
+      <h3>Контакты</h3>
+      <div class="cont-item">
+        <div class="ci-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div><b>Адрес</b><span>с. Девица, ул. Болотная, д. 83<br>Воронежская область, берег реки Дон</span></div>
+      </div>
+      <div class="cont-item">
+        <div class="ci-ic"><svg viewBox="0 0 24 24"><path d="M4 10c0-4 3.5-6 8-6s8 2 8 6"/><path d="M4 10h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-4z"/><path d="M9 20h6"/></svg></div>
+        <div><b>Телефон</b><a href="tel:+79507500707">+7 (950) 750-07-07</a></div>
+      </div>
+      <div class="cont-item">
+        <div class="ci-ic"><svg viewBox="0 0 24 24" fill="#0077ff" stroke="none"><path d="M13.16 17.6c-5.28 0-8.5-3.62-8.63-9.65h2.71c.09 4.45 2.05 6.33 3.6 6.72V7.95h2.5v3.84c1.53-.16 3.14-1.92 3.68-3.84h2.5c-.42 2.37-2.17 4.13-3.41 4.85 1.24.58 3.22 2.1 3.98 4.8h-2.75c-.6-1.86-2.06-3.3-4-3.5v3.5h-.18z"/></svg></div>
+        <div><b>ВКонтакте</b><a href="https://vk.com/tishina.glemp" target="_blank" rel="noopener">vk.com/tishina.glemp</a></div>
+      </div>
+      <div class="cont-links">
+        <a class="cont-link ym" href="https://yandex.ru/maps/?pt=39.0566106,51.6404361&z=15&l=map" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Открыть в Яндекс Картах</a>
+        <a class="cont-link gm" href="https://www.google.com/maps/search/?api=1&query=51.6404361,39.0566106" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Открыть в Google Картах</a>
+      </div>
     </div>
   </div>
 </div></section>
