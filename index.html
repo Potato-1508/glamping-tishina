@@ -935,7 +935,10 @@ document.getElementById('lead-form').addEventListener('submit', function(e){
 
     var houseTotal = houseOn ? PRICES[currentDay] : 0;
     var guestsExtra = guests > GUEST_BASE ? (guests - GUEST_BASE) * GUEST_EXTRA : 0;
-    var total = houseTotal + guestsExtra;
+    var chanTotal = chanOn ? CHAN_PRICE : 0;
+    var decorTotal = decorInput.checked ? DECOR_PRICE : 0;
+    var robesTotal = robesInput.checked ? ROBES_PRICE : 0;
+    var total = houseTotal + guestsExtra + chanTotal + decorTotal + robesTotal;
     lastTotal = total;
 
     totalTop.textContent = fmt(total);
