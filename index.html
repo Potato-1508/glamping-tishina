@@ -169,6 +169,12 @@ header{position:sticky;top:0;z-index:50;background:#f2ead9;border-bottom:1px sol
 .day-picker button{padding:9px 0;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#44403c;color:#d6d3d1;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s}
 .day-picker button:hover{border-color:#f97316;color:#fff}
 .day-picker button.active{background:#f97316;border-color:#f97316;color:#fff}
+.date-picker{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.dp-select{width:100%;padding:9px 4px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#44403c;color:#d6d3d1;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s;appearance:none;-webkit-appearance:none;text-align:center;text-overflow:ellipsis}
+.dp-select:hover{border-color:#f97316;color:#fff}
+.dp-select:focus{outline:none;border-color:#f97316;color:#fff}
+.date-weekday{margin-top:8px;font-size:12.5px;font-weight:600;color:#a8a29e}
+.date-weekday b{color:#f97316}
 .guest-row{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px}
 .guest-note{font-size:12.5px;color:#a8a29e;font-weight:600}
 .guest-stepper{display:flex;align-items:center;border:1px solid rgba(255,255,255,.14);border-radius:12px;overflow:hidden;flex:0 0 auto;background:#44403c}
@@ -466,16 +472,13 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
         </div>
 
         <div class="calc-row">
-          <div class="calc-label">День недели</div>
-          <div class="day-picker" id="dayPickerH">
-            <button type="button" data-day="mon">Пн</button>
-            <button type="button" data-day="tue">Вт</button>
-            <button type="button" data-day="wed">Ср</button>
-            <button type="button" data-day="thu">Чт</button>
-            <button type="button" data-day="fri">Пт</button>
-            <button type="button" data-day="sat">Сб</button>
-            <button type="button" data-day="sun">Вс</button>
+          <div class="calc-label">Дата заезда</div>
+          <div class="date-picker">
+            <select class="dp-select" id="dateDayH" aria-label="Число"></select>
+            <select class="dp-select" id="dateMonthH" aria-label="Месяц"></select>
+            <select class="dp-select" id="dateYearH" aria-label="Год"></select>
           </div>
+          <div class="date-weekday" id="dateWeekdayH"></div>
         </div>
 
         <div class="guest-row">
@@ -639,8 +642,40 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   var CHAN_PRICE = 5000, DECOR_PRICE = 1500, ROBES_PRICE = 1000, GUEST_EXTRA = 1000, GUEST_BASE = 2, GUEST_MAX = 10;
 
   var days = ['sun','mon','tue','wed','thu','fri','sat'];
-  var dayBtns = card.querySelectorAll('.day-picker button');
-  var currentDay = days[new Date().getDay()];
+  var DAY_FULL = ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
+  var MONTHS_NOM = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+  var MONTHS_GEN = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+
+  var daySel = document.getElementById('dateDayH');
+  var monthSel = document.getElementById('dateMonthH');
+  var yearSel = document.getElementById('dateYearH');
+  var weekdayEl = document.getElementById('dateWeekdayH');
+
+  var today = new Date();
+  var currentDay = days[today.getDay()];
+
+  // заполнение селектов реальной даты (по умолчанию — сегодня)
+  (function(){
+    for(var d = 1; d <= 31; d++){
+      var o = document.createElement('option');
+      o.value = d; o.textContent = d;
+      daySel.appendChild(o);
+    }
+    MONTHS_NOM.forEach(function(m, i){
+      var o = document.createElement('option');
+      o.value = i + 1; o.textContent = m;
+      monthSel.appendChild(o);
+    });
+    var y0 = today.getFullYear();
+    for(var y = y0; y <= y0 + 2; y++){
+      var o2 = document.createElement('option');
+      o2.value = y; o2.textContent = y;
+      yearSel.appendChild(o2);
+    }
+    daySel.value = today.getDate();
+    monthSel.value = today.getMonth() + 1;
+    yearSel.value = y0;
+  })();
 
   var guestNumEl = document.getElementById('guestNumH');
   var guests = GUEST_BASE;
@@ -662,11 +697,27 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
 
   function setDay(day){
     currentDay = day;
-    dayBtns.forEach(function(b){
-      b.classList.toggle('active', b.getAttribute('data-day') === day);
-    });
     render();
   }
+
+  // день недели и цена определяются по выбранной реальной дате
+  function updateWeekdayLabel(){
+    var d = parseInt(daySel.value, 10);
+    var m = parseInt(monthSel.value, 10);
+    var y = parseInt(yearSel.value, 10);
+    var date = new Date(y, m - 1, d);
+    // корректировка числа (31 в феврале → 28/29)
+    var realD = date.getDate();
+    if(realD !== d){ daySel.value = realD; d = realD; }
+    currentDay = days[date.getDay()];
+    var isToday = (d === today.getDate() && m === today.getMonth() + 1 && y === today.getFullYear());
+    weekdayEl.innerHTML = (isToday ? 'сегодня · ' : '') + '<b>' + DAY_FULL[date.getDay()] + '</b> — ' + d + ' ' + MONTHS_GEN[m - 1];
+    render();
+  }
+
+  [daySel, monthSel, yearSel].forEach(function(sel){
+    sel.addEventListener('change', updateWeekdayLabel);
+  });
 
   function setGuests(n){
     guests = Math.max(GUEST_BASE, Math.min(GUEST_MAX, n));
@@ -704,10 +755,6 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
     document.getElementById('brGuestsH').classList.toggle('hidden', guestsExtra === 0);
   }
 
-  dayBtns.forEach(function(b){
-    b.addEventListener('click', function(){ setDay(b.getAttribute('data-day')); });
-  });
-
   document.getElementById('guestMinusH').addEventListener('click', function(){ setGuests(guests - 1); });
   document.getElementById('guestPlusH').addEventListener('click', function(){ setGuests(guests + 1); });
 
@@ -719,20 +766,23 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   // hero: «Забронировать» → открываем VK с текстом заявки
   var bookBtnH = document.getElementById('bookBtnH');
   if(bookBtnH) bookBtnH.addEventListener('click', function(){
-    var dayName = {mon:'Пн', tue:'Вт', wed:'Ср', thu:'Чт', fri:'Пт', sat:'Сб', sun:'Вс'}[currentDay];
+    var d = parseInt(daySel.value, 10);
+    var m = parseInt(monthSel.value, 10);
+    var y = parseInt(yearSel.value, 10);
+    var dateStr = d + ' ' + MONTHS_GEN[m - 1] + ' ' + y;
     var parts = [];
     if(houseInput.checked) parts.push('домик ' + fmt(PRICES[currentDay]));
     if(chanInput.checked) parts.push('чан 5 000 ₽');
     if(decorInput.checked) parts.push('украшения +1 500 ₽');
     if(robesInput.checked) parts.push('халаты 1 000 ₽');
     var msg = 'Здравствуйте! Хочу забронировать дом в глэмпинге «Тишина».';
-    msg += '\nДень: ' + dayName + ', гостей: ' + guests;
+    msg += '\nДата: ' + dateStr + ' (' + DAY_FULL[days.indexOf(currentDay)] + '), гостей: ' + guests;
     if(parts.length) msg += '\nСостав: ' + parts.join(', ');
     msg += '\nСумма: ' + fmt(lastTotal);
     window.open('https://vk.com/tishina.glemp', '_blank');
   });
 
-  setDay(currentDay);
+  updateWeekdayLabel();
 })();
 </script>
 </body>
