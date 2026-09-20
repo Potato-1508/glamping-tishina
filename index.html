@@ -411,6 +411,25 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
 }
 </style>
 <noscript><style>.reveal,.reveal-grid>*{opacity:1!important;transform:none!important}</style></noscript>
+<style>
+/* ===== что вас ждёт ===== */
+.what-waits{padding:80px 0 0;text-align:center}
+.wait-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+.wait-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);text-align:left;transition:transform .3s}
+.wait-card:hover{transform:translateY(-4px)}
+.wait-img{height:220px;overflow:hidden;background:#e7e2d3}
+.wait-img img{width:100%;height:100%;object-fit:cover;display:block}
+.wait-info{padding:20px 24px 24px}
+.wait-info h3{font-size:18px;font-weight:700;margin-bottom:6px;color:#1c1917}
+.wait-info p{font-size:14px;line-height:1.6;color:#57534e}
+.wait-bottom{margin-top:48px;padding:20px 24px;background:#1c1917;color:#fff;border-radius:16px;display:flex;align-items:center;gap:12px;font-size:14px;line-height:1.6;text-align:left}
+.wb-label{color:#f97316;font-weight:700;white-space:nowrap;flex-shrink:0}
+@media(max-width:700px){
+  .wait-grid{grid-template-columns:1fr}
+  .what-waits{padding:48px 0 0}
+  .wait-bottom{flex-direction:column;gap:6px}
+}
+</style>
 </head>
 <body>
 
@@ -523,6 +542,53 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
       </div>
       <button class="btn-green btn-book" id="bookBtnH" type="button">Забронировать</button>
       <p class="note" style="margin-top:14px;color:#78716c">Обратите внимание, цены могут меняться в зависимости от дня недели. Подробнее…</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== что вас ждёт ===== -->
+<section class="what-waits">
+  <div class="wrap">
+    <h2 class="reveal">Что вас ждёт в «Тишине»</h2>
+    <p class="sec-intro reveal">Не просто ночёвка на природе, а продуманный отдых: дом, банный чан и сервис вокруг.</p>
+
+    <div class="wait-grid">
+      <div class="wait-card reveal">
+        <div class="wait-img"><img src="img/house.webp" alt="А-фрейм дом ночью" loading="lazy"></div>
+        <div class="wait-info">
+          <h3>Просторные А-фрейм дома</h3>
+          <p>Дома больше стандартных: панорамное остекление, второй свет, полноценная кухня и зона отдыха. Спроектированы с любовью к деталям и вашему комфорту.</p>
+        </div>
+      </div>
+
+      <div class="wait-card reveal">
+        <div class="wait-img"><img src="img/chan.webp" alt="Банный чан" loading="lazy"></div>
+        <div class="wait-info">
+          <h3>Сибирский банный чан</h3>
+          <p>Тёплая вода на дровах под открытым небом. Ароматные травы, дым от дров и целительная сила воды — истинное русское удовольствие на свежем воздухе.</p>
+        </div>
+      </div>
+
+      <div class="wait-card reveal">
+        <div class="wait-img"><img src="img/evening.webp" alt="Костровая зона" loading="lazy"></div>
+        <div class="wait-info">
+          <h3>Костровая зона и вечера у огня</h3>
+          <p>Шезлонги, гирлянды и живой огонь. Посиделки до темноты — с пледом, глинтвейном или просто под звёздами.</p>
+        </div>
+      </div>
+
+      <div class="wait-card reveal">
+        <div class="wait-img"><img src="img/house2.webp" alt="Домик и мангал" loading="lazy"></div>
+        <div class="wait-info">
+          <h3>Шашлык от «Не Травы»</h3>
+          <p>Готовим за вас: сочное мясо со специями доставим прямо к домику. Вы занимаетесь отдыхом — мы занимаемся ужином.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wait-bottom reveal">
+      <span class="wb-label">Расположение:</span>
+      <span>посреди бескрайних полей, всего в 10 минутах езды от Воронежа, рядом с живописной рекой Дон. Идеальный баланс между природой и доступностью городских удобств.</span>
     </div>
   </div>
 </section>
