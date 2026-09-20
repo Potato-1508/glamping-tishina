@@ -165,14 +165,23 @@ header{background:transparent;border-bottom:1px solid rgba(28,25,23,.1)}
 .calc-total{font-size:32px;font-weight:900;color:#f97316;letter-spacing:-1px;white-space:nowrap;line-height:1}
 .calc-row{margin-bottom:18px}
 .calc-label{font-size:13px;font-weight:700;color:#e7e5e4;margin-bottom:8px}
-.day-picker{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.day-picker button{padding:9px 0;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#44403c;color:#d6d3d1;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s}
-.day-picker button:hover{border-color:#f97316;color:#fff}
-.day-picker button.active{background:#f97316;border-color:#f97316;color:#fff}
-.date-picker{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.dp-select{width:100%;padding:9px 4px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#44403c;color:#d6d3d1;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s;appearance:none;-webkit-appearance:none;text-align:center;text-overflow:ellipsis}
-.dp-select:hover{border-color:#f97316;color:#fff}
-.dp-select:focus{outline:none;border-color:#f97316;color:#fff}
+.date-btn-wrap{position:relative}
+.date-btn-wrap.open .date-btn .caret{transform:rotate(180deg)}
+.cal-dd{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-8px);min-width:300px;background:#44403c;border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px rgba(20,16,12,.35);padding:14px;opacity:0;visibility:hidden;transition:all .22s;z-index:40}
+.date-btn-wrap.open .cal-dd{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.cal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.cal-h button{background:none;border:none;color:#d6d3d1;font-size:20px;cursor:pointer;padding:4px 12px;border-radius:8px;font-family:inherit;transition:background .15s}
+.cal-h button:hover{background:rgba(255,255,255,.08);color:#fff}
+.cal-h-lbl{font-size:15px;font-weight:800;color:#fff}
+.cal-w{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:6px}
+.cal-w span{text-align:center;font-size:11px;font-weight:700;color:#a8a29e;padding:4px 0}
+.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-g button{padding:7px 0;border-radius:9px;border:none;background:transparent;color:#d6d3d1;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .1s;line-height:1.3}
+.cal-g button:hover{background:rgba(255,255,255,.1);color:#fff}
+.cal-g button.cal-om{opacity:.3}
+.cal-g button.cal-td{font-weight:800;color:#f97316}
+.cal-g button.cal-sel{background:#f97316;color:#fff;font-weight:800}
+.cal-g button.cal-sel:hover{background:#ea6a0c}
 .date-weekday{margin-top:8px;font-size:12.5px;font-weight:600;color:#a8a29e}
 .date-weekday b{color:#f97316}
 .guest-row{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px}
@@ -495,10 +504,22 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
 
         <div class="calc-row">
           <div class="calc-label">Дата заезда</div>
-          <div class="date-picker">
-            <select class="dp-select" id="dateDayH" aria-label="Число"></select>
-            <select class="dp-select" id="dateMonthH" aria-label="Месяц"></select>
-            <select class="dp-select" id="dateYearH" aria-label="Год"></select>
+          <div class="date-btn-wrap">
+            <button type="button" class="date-btn" id="dateBtnH">
+              <span id="dateBtnTextH">20 сентября 2026</span>
+              <span class="caret">▾</span>
+            </button>
+            <div class="cal-dd" id="calDDH">
+              <div class="cal-h">
+                <button type="button" id="calPrevH">‹</button>
+                <span class="cal-h-lbl" id="calMonthLabelH">Сентябрь 2026</span>
+                <button type="button" id="calNextH">›</button>
+              </div>
+              <div class="cal-w">
+                <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+              </div>
+              <div class="cal-g" id="calGridH"></div>
+            </div>
           </div>
           <div class="date-weekday" id="dateWeekdayH"></div>
         </div>
@@ -727,36 +748,18 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   var MONTHS_NOM = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
   var MONTHS_GEN = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
 
-  var daySel = document.getElementById('dateDayH');
-  var monthSel = document.getElementById('dateMonthH');
-  var yearSel = document.getElementById('dateYearH');
   var weekdayEl = document.getElementById('dateWeekdayH');
+  var dateBtnText = document.getElementById('dateBtnTextH');
+  var dateBtnWrap = document.querySelector('.date-btn-wrap');
+  var calDD = document.getElementById('calDDH');
+  var calGrid = document.getElementById('calGridH');
+  var calMonthLabel = document.getElementById('calMonthLabelH');
 
   var today = new Date();
   var currentDay = days[today.getDay()];
-
-  // заполнение селектов реальной даты (по умолчанию — сегодня)
-  (function(){
-    for(var d = 1; d <= 31; d++){
-      var o = document.createElement('option');
-      o.value = d; o.textContent = d;
-      daySel.appendChild(o);
-    }
-    MONTHS_NOM.forEach(function(m, i){
-      var o = document.createElement('option');
-      o.value = i + 1; o.textContent = m;
-      monthSel.appendChild(o);
-    });
-    var y0 = today.getFullYear();
-    for(var y = y0; y <= y0 + 2; y++){
-      var o2 = document.createElement('option');
-      o2.value = y; o2.textContent = y;
-      yearSel.appendChild(o2);
-    }
-    daySel.value = today.getDate();
-    monthSel.value = today.getMonth() + 1;
-    yearSel.value = y0;
-  })();
+  var selectedDate = new Date();
+  var calMonth = today.getMonth();
+  var calYear = today.getFullYear();
 
   var guestNumEl = document.getElementById('guestNumH');
   var guests = GUEST_BASE;
@@ -783,21 +786,98 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
 
   // день недели и цена определяются по выбранной реальной дате
   function updateWeekdayLabel(){
-    var d = parseInt(daySel.value, 10);
-    var m = parseInt(monthSel.value, 10);
-    var y = parseInt(yearSel.value, 10);
-    var date = new Date(y, m - 1, d);
-    // корректировка числа (31 в феврале → 28/29)
-    var realD = date.getDate();
-    if(realD !== d){ daySel.value = realD; d = realD; }
+    var date = selectedDate;
+    var d = date.getDate();
+    var m = date.getMonth() + 1;
+    var y = date.getFullYear();
     currentDay = days[date.getDay()];
     var isToday = (d === today.getDate() && m === today.getMonth() + 1 && y === today.getFullYear());
     weekdayEl.innerHTML = (isToday ? 'сегодня · ' : '') + '<b>' + DAY_FULL[date.getDay()] + '</b> — ' + d + ' ' + MONTHS_GEN[m - 1];
     render();
   }
 
-  [daySel, monthSel, yearSel].forEach(function(sel){
-    sel.addEventListener('change', updateWeekdayLabel);
+  // ===== календарь =====
+  function buildCalendar(){
+    var firstDay = new Date(calYear, calMonth, 1).getDay();
+    var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+    var daysInPrev = new Date(calYear, calMonth, 0).getDate();
+    // понедельник = 0
+    var startOff = firstDay === 0 ? 6 : firstDay - 1;
+    calMonthLabel.textContent = MONTHS_NOM[calMonth] + ' ' + calYear;
+    calGrid.innerHTML = '';
+    // дни прошлого месяца
+    for(var i = startOff - 1; i >= 0; i--){
+      var b = document.createElement('button');
+      b.textContent = daysInPrev - i;
+      b.className = 'cal-om';
+      b.dataset.d = daysInPrev - i;
+      b.dataset.m = calMonth - 1;
+      b.dataset.y = calMonth === 0 ? calYear - 1 : calYear;
+      calGrid.appendChild(b);
+    }
+    // дни текущего месяца
+    for(var d = 1; d <= daysInMonth; d++){
+      var b = document.createElement('button');
+      b.textContent = d;
+      var dt = new Date(calYear, calMonth, d);
+      b.dataset.d = d;
+      b.dataset.m = calMonth;
+      b.dataset.y = calYear;
+      if(dt.toDateString() === today.toDateString()) b.classList.add('cal-td');
+      if(d === selectedDate.getDate() && calMonth === selectedDate.getMonth() && calYear === selectedDate.getFullYear()) b.classList.add('cal-sel');
+      calGrid.appendChild(b);
+    }
+    // заполнение пустых ячеек днями след месяца
+    var filled = startOff + daysInMonth;
+    var rem = 7 - (filled % 7);
+    if(rem < 7){
+      for(var i = 1; i <= rem; i++){
+        var b = document.createElement('button');
+        b.textContent = i;
+        b.className = 'cal-om';
+        b.dataset.d = i;
+        b.dataset.m = calMonth + 1;
+        b.dataset.y = calMonth === 11 ? calYear + 1 : calYear;
+        calGrid.appendChild(b);
+      }
+    }
+    // клик по дню
+    Array.from(calGrid.children).forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        selectedDate = new Date(parseInt(this.dataset.y), parseInt(this.dataset.m), parseInt(this.dataset.d));
+        calMonth = selectedDate.getMonth();
+        calYear = selectedDate.getFullYear();
+        dateBtnWrap.classList.remove('open');
+        dateBtnText.textContent = selectedDate.getDate() + ' ' + MONTHS_GEN[selectedDate.getMonth()] + ' ' + selectedDate.getFullYear();
+        buildCalendar();
+        updateWeekdayLabel();
+      });
+    });
+  }
+
+  // открыть/закрыть календарь
+  document.getElementById('dateBtnH').addEventListener('click', function(e){
+    e.stopPropagation();
+    dateBtnWrap.classList.toggle('open');
+    buildCalendar();
+  });
+  document.addEventListener('click', function(e){
+    if(!dateBtnWrap.contains(e.target)) dateBtnWrap.classList.remove('open');
+  });
+
+  // навигация по месяцам
+  document.getElementById('calPrevH').addEventListener('click', function(e){
+    e.stopPropagation();
+    calMonth--;
+    if(calMonth < 0){ calMonth = 11; calYear--; }
+    buildCalendar();
+  });
+  document.getElementById('calNextH').addEventListener('click', function(e){
+    e.stopPropagation();
+    calMonth++;
+    if(calMonth > 11){ calMonth = 0; calYear++; }
+    buildCalendar();
   });
 
   function setGuests(n){
@@ -847,9 +927,10 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   // hero: «Забронировать» → открываем VK с текстом заявки
   var bookBtnH = document.getElementById('bookBtnH');
   if(bookBtnH) bookBtnH.addEventListener('click', function(){
-    var d = parseInt(daySel.value, 10);
-    var m = parseInt(monthSel.value, 10);
-    var y = parseInt(yearSel.value, 10);
+    var date = selectedDate;
+    var d = date.getDate();
+    var m = date.getMonth() + 1;
+    var y = date.getFullYear();
     var dateStr = d + ' ' + MONTHS_GEN[m - 1] + ' ' + y;
     var parts = [];
     if(houseInput.checked) parts.push('домик ' + fmt(PRICES[currentDay]));
@@ -864,6 +945,8 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   });
 
   updateWeekdayLabel();
+  dateBtnText.textContent = selectedDate.getDate() + ' ' + MONTHS_GEN[selectedDate.getMonth()] + ' ' + selectedDate.getFullYear();
+  buildCalendar();
 })();
 </script>
 </body>
