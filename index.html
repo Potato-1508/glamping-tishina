@@ -16,9 +16,9 @@
 <meta property="og:title" content="Глэмпинг «Тишина» — А-фрейм дома у реки Дон · Воронеж">
 <meta property="og:description" content="Просторные А-фрейм дома в 10 минутах от Воронежа, у реки Дон. Банный чан, костровая зона, шашлык с доставкой. Отдых на природе с городским комфортом.">
 <meta property="og:url" content="https://potato-1508.github.io/glamping-tishina/">
-<meta property="og:image" content="https://potato-1508.github.io/glamping-tishina/img/hero.webp">
-<meta property="og:image:width" content="1500">
-<meta property="og:image:height" content="1000">
+<meta property="og:image" content="https://potato-1508.github.io/glamping-tishina/img/hero-bg.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -26,7 +26,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f97316'/%3E%3Cpath d='M20 50 L32 14 L44 50' stroke='%230a0a0f' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M24 42 H40' stroke='%230a0a0f' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 
 <!-- Preload hero-фото для быстрого первого экрана -->
-<link rel="preload" as="image" href="img/hero.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero-bg.webp" type="image/webp" fetchpriority="high">
 
 <!-- JSON-LD: структурированные данные для поисковиков -->
 <script type="application/ld+json">
@@ -36,7 +36,7 @@
   "name": "Глэмпинг «Тишина»",
   "description": "Просторные А-фрейм дома у реки Дон, в 10 минутах от Воронежа. Банный чан, костровая зона, шашлык с доставкой.",
   "url": "https://potato-1508.github.io/glamping-tishina/",
-  "image": "https://potato-1508.github.io/glamping-tishina/img/hero.webp",
+  "image": "https://potato-1508.github.io/glamping-tishina/img/hero-bg.webp",
   "priceRange": "₽₽",
   "address": {
     "@type": "PostalAddress",
@@ -66,56 +66,32 @@ input,textarea,select,button{color-scheme:light}
 a{color:inherit;text-decoration:none}
 
 /* ===== header ===== */
-header{background:transparent;border-bottom:1px solid rgba(28,25,23,.1)}
+header{position:absolute;left:0;right:0;top:0;z-index:10;background:transparent;border-bottom:1px solid rgba(255,255,255,.15)}
 .header-in{display:flex;align-items:center;justify-content:space-between;padding:2px 0}
 .logo{display:flex;align-items:center;gap:10px}
-.logo img{display:block;height:80px;width:auto}
+.logo img{display:block;height:60px;width:auto;max-width:110px}
 .logo em{font-style:normal;color:#f97316}
 .header-right{display:flex;align-items:center;gap:12px}
-.header-phone{display:flex;align-items:center;justify-content:center;color:#1c1917;font-weight:800;font-size:15px;padding:9px;border-radius:12px;border:1.5px solid rgba(249,115,22,.45);background:rgba(249,115,22,.07);text-decoration:none;transition:all .15s;white-space:nowrap}
+.header-phone{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;padding:9px;border-radius:12px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);text-decoration:none;transition:all .15s;white-space:nowrap}
 .header-phone:hover{border-color:#f97316;background:rgba(249,115,22,.14);color:#f97316}
 .header-phone svg{display:block;flex:none}
-.header-tel{display:flex;align-items:center;gap:9px;color:#1c1917;font-weight:800;font-size:15px;padding:9px 16px;border-radius:12px;border:1.5px solid rgba(249,115,22,.45);background:rgba(249,115,22,.07);text-decoration:none;transition:all .15s;letter-spacing:.2px;white-space:nowrap}
+.header-tel{display:flex;align-items:center;gap:9px;color:#fff;font-weight:800;font-size:15px;padding:9px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);text-decoration:none;transition:all .15s;letter-spacing:.2px;white-space:nowrap}
 .header-tel svg{display:block;flex:none}
 .header-tel:hover{border-color:#f97316;background:rgba(249,115,22,.14);color:#f97316}
 
 /* ===== hero ===== */
-.hero{position:relative;padding:96px 0 88px;overflow:hidden}
-.hero::before{content:'';position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.15),transparent 65%);top:-340px;right:-200px;filter:blur(10px)}
-.hero::after{content:'';position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,.1),transparent 60%);bottom:-300px;left:-160px;filter:blur(10px)}
-.hero-dots{position:absolute;top:40px;left:0;right:0;height:100%;pointer-events:none;opacity:.35;background-image:radial-gradient(rgba(28,25,23,.12) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(180deg,rgba(0,0,0,.6),transparent 45%)}
-.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:flex-start}
-.hero .dd-wrap{margin:4px 0 6px}
-.tag{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.35);color:#c2410c;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;margin:40px auto 26px;width:fit-content}
-.hero-tents{grid-column:1/-1;text-align:center;display:block;width:575px;max-width:100%;height:auto;margin:0 auto 4px;opacity:.95}
-.tag::before{content:'';width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 12px #34d399}
-.hero h1{font-size:50px;line-height:1.08;font-weight:900;letter-spacing:-1.5px}
-.hero h1 span{background:linear-gradient(135deg,#d97706,#ea580c);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{margin-top:20px;font-size:18px;color:#57534e;max-width:560px}
-.hero-sub b{color:#1c1917}
-.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.badge{background:rgba(255,255,255,.7);border:1px solid rgba(28,25,23,.12);padding:9px 16px;border-radius:12px;font-size:13.5px;color:#44403c}
-.badge b{color:#1c1917}
-.cta-row{display:flex;align-items:center;gap:16px;margin-top:36px;flex-wrap:wrap}
-.btn{display:inline-block;background:linear-gradient(135deg,#f59e0b,#f97316);color:#0a0a0f;font-weight:800;font-size:17px;padding:17px 32px;border-radius:14px;box-shadow:0 10px 40px rgba(249,115,22,.35);transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn.ghost{background:rgba(255,255,255,.7);border:1px solid rgba(28,25,23,.2);color:#1c1917;box-shadow:none}
-.btn.ghost:hover{border-color:#f97316;color:#f97316}
-.note{font-size:13.5px;color:#78716c}
-.hero-media{position:relative;display:flex;flex-direction:column;gap:16px;margin-top:102px}
-.hero-media .slider{flex:none;height:620px}
-.hero-media .slider-track{height:100%}
-.hero-media .slide{height:100%}
-.hero-media .slide img{height:100%;object-fit:cover}
-.hero-media img{width:100%;border-radius:20px;display:block;border:1px solid rgba(28,25,23,.1);box-shadow:0 30px 80px rgba(87,83,78,.25)}
-.hero-media .corner{position:absolute;width:26px;height:26px;border:3px solid #f97316}
-.hero-tags{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.hero-tag{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.72);border:1px solid rgba(28,25,23,.12);border-radius:14px;padding:11px 14px;font-size:13.5px;font-weight:700;color:#1c1917;box-shadow:0 4px 14px rgba(87,83,78,.08)}
-.hero-tag svg{display:block;flex:none}
-.hero-media .corner.tl{top:-8px;left:-8px;border-right:none;border-bottom:none;border-radius:8px 0 0 0}
-.hero-media .corner.br{bottom:-8px;right:-8px;border-left:none;border-top:none;border-radius:0 0 8px 0}
-.hero-media-cap{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:#78716c}
-.hero-media-cap b{color:#44403c;font-weight:600}
+/* ===== hero NEW ===== */
+.hero{position:relative;height:100vh;min-height:600px;max-height:1080px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-bg-wrap{position:absolute;inset:0;z-index:0}
+.hero-bg-img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.4) 50%,rgba(0,0,0,.65) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px;padding:40px 24px}
+.hero-logo{width:260px;height:auto;display:block;filter:drop-shadow(0 4px 20px rgba(0,0,0,.4))}
+.hero-features{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.hf-item{display:flex;align-items:center;gap:10px;color:#fff;font-size:17px;font-weight:600;letter-spacing:.4px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.hf-dot{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 12px rgba(34,197,94,.6);flex:none}
+.hero-price-line{color:rgba(255,255,255,.85);font-size:20px;font-weight:600;letter-spacing:.3px;text-shadow:0 2px 16px rgba(0,0,0,.5)}
+.hero-price-num{color:#22c55e;font-size:30px;font-weight:900;letter-spacing:-.5px}
 
 /* ===== pains (showcase: slider + booking) ===== */
 .pains{background:rgba(255,255,255,.4);border-top:1px solid rgba(28,25,23,.08);border-bottom:1px solid rgba(28,25,23,.08);padding:88px 0}
@@ -332,11 +308,12 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
 .footer-logo em{font-style:normal;color:#f97316}
 
 @media(max-width:960px){
-  .hero{padding:64px 0}
-  .hero-in{grid-template-columns:1fr;gap:36px}
-  .hero-media{display:none}
-  .hero-media .slider{height:auto;flex:none}
-  .hero h1{font-size:38px}
+  .hero{max-height:none;min-height:500px}
+  .hero-logo{width:200px}
+  .hero-features{gap:16px}
+  .hf-item{font-size:15px}
+  .hero-price-line{font-size:17px}
+  .hero-price-num{font-size:24px}
   .pain-split{grid-template-columns:1fr;gap:36px}
   .pain-split h2{font-size:32px}
   .step-grid{grid-template-columns:1fr 1fr}
@@ -364,19 +341,13 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
 
 /* ===== ANIMATIONS ===== */
 @media (prefers-reduced-motion: no-preference){
-  .hero .tag{animation:fadeDown .7s .05s both}
-  .hero h1{animation:heroIn .9s cubic-bezier(.16,1,.3,1) .1s both}
-  .hero-sub{animation:fadeUp .8s .2s both}
-  .badges{animation:fadeUp .8s .3s both}
-  .cta-row{animation:fadeUp .8s .4s both}
-  .hero-media{animation:scaleIn .9s cubic-bezier(.16,1,.3,1) .25s both}
-  @keyframes heroIn{from{opacity:0;transform:translateY(36px) scale(.98)}to{opacity:1;transform:none}}
+  .hero-content{animation:heroFadeIn 1.1s cubic-bezier(.16,1,.3,1) both}
+  .hero-logo{animation:heroScaleIn 1s cubic-bezier(.16,1,.3,1) .1s both}
+  .hero-features{animation:fadeUp .9s .35s both}
+  .hero-price-line{animation:fadeUp .9s .5s both}
+  @keyframes heroFadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes heroScaleIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-  @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
-  @keyframes scaleIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
-
-  .hero h1 span{background-size:220% 100%;animation:gradShift 4.5s ease-in-out infinite}
-  @keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
   .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none;animation:blobFloat 13s ease-in-out infinite alternate;z-index:0}
   .blob.b1{width:540px;height:540px;background:rgba(249,115,22,.22);top:-180px;right:-150px}
@@ -445,7 +416,7 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
 <header>
   <div class="wrap header-in">
     <a class="logo" href="#">
-      <img src="img/logo-full.webp" alt="Глэмпинг Тишина" width="110" height="80">
+      <img src="img/logo-white.webp" alt="Глэмпинг Тишина" width="110" height="156">
     </a>
     <div class="header-right">
       <a class="header-tel" href="tel:+79507500707" aria-label="Позвонить: +7 950 750-07-07">
@@ -462,111 +433,22 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-dots"></div>
-  <div class="blob b1"></div>
-  <div class="blob b2"></div>
-  <div class="blob b3"></div>
-  <div class="wrap hero-in">
-    <img class="hero-tents" src="img/tents.webp" alt="" width="575" height="136">
-    <div class="hero-media">
-      <div class="slider" id="heroSlider">
-        <div class="slider-track">
-          <div class="slide"><picture><source srcset="img/hero.webp" type="image/webp"><img loading="lazy" alt="А-фрейм дома глэмпинга Тишина" src="img/hero.jpg"></picture><div class="slide-cap"><b>Ваш А-фрейм</b>Панорамные окна и вид на поля</div></div>
-          <div class="slide"><picture><source srcset="img/houses.webp" type="image/webp"><img loading="lazy" alt="Домики с гирляндами" src="img/houses.jpg"></picture><div class="slide-cap"><b>Домики с гирляндами</b>Вечера здесь выглядят именно так</div></div>
-          <div class="slide"><picture><source srcset="img/evening.webp" type="image/webp"><img loading="lazy" alt="Вечер у костра" src="img/evening.jpg"></picture><div class="slide-cap"><b>Вечер у огня</b>Костровая зона, пледы и живой огонь</div></div>
-          <div class="slide"><picture><source srcset="img/chan.webp" type="image/webp"><img loading="lazy" alt="Банный чан" src="img/chan.jpg"></picture><div class="slide-cap"><b>Банный чан</b>Тёплая вода на дровах под звёздами</div></div>
-          <div class="slide"><picture><source srcset="img/house.webp" type="image/webp"><img loading="lazy" alt="Дом вечером" src="img/house.jpg"></picture><div class="slide-cap"><b>Дом вечером</b>Подсветка, тишина и природа</div></div>
-          <div class="slide"><picture><source srcset="img/chan_zone.webp" type="image/webp"><img loading="lazy" alt="Чан на закате" src="img/chan_zone.jpg"></picture><div class="slide-cap"><b>Чан на закате</b>Пар, дым и звёздное небо</div></div>
-        </div>
-        <button class="slider-arrow prev" type="button" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 5.5 8 12 14.5 18.5"/></svg></button>
-        <button class="slider-arrow next" type="button" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9.5 5.5 16 12 9.5 18.5"/></svg></button>
-        <div class="slider-dots"></div>
-      </div>
-      <div class="hero-tags">
-        <div class="hero-tag"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M12 10v9"/></svg>Панорамные окна</div>
-        <div class="hero-tag"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-6-4.3-6-9.5A6 6 0 0 1 12 6.5a6 6 0 0 1 6 6C18 17.7 12 22 12 22z"/><circle cx="12" cy="11" r="2.5"/></svg>Костровая зона</div>
-        <div class="hero-tag"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10c0-4 3.5-6 8-6s8 2 8 6"/><path d="M4 10h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-4z"/><path d="M9 20h6"/></svg>Банный чан</div>
-        <div class="hero-tag"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>10 минут от города</div>
-      </div>
-      <p class="note" style="margin-top:14px;color:#78716c">Обратите внимание, цены могут меняться в зависимости от дня недели. Подробнее…</p>
+<section class="hero" id="hero">
+  <div class="hero-bg-wrap">
+    <picture>
+      <source srcset="img/hero-bg.webp" type="image/webp">
+      <img class="hero-bg-img" src="img/hero-bg.jpg" alt="" fetchpriority="high">
+    </picture>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <img class="hero-logo" src="img/logo-white.webp" alt="Тишина Глэмпинг" width="300" height="425">
+    <div class="hero-features">
+      <span class="hf-item"><span class="hf-dot"></span>Афреймы</span>
+      <span class="hf-item"><span class="hf-dot"></span>Сибирский чан</span>
+      <span class="hf-item"><span class="hf-dot"></span>Русская баня</span>
     </div>
-    <div>
-      <div class="tag">Бронирование через VK или по номеру телефона</div>
-      <div class="calc-card reveal" id="calcCardH">
-        <div class="calc-head">
-          <div>
-            <div class="calc-title">Рассчитайте стоимость</div>
-            <div class="calc-sub">цена зависит от дня недели</div>
-          </div>
-          <div class="calc-total" id="calcTotalH">6 900 ₽</div>
-        </div>
-
-        <div class="calc-row">
-          <div class="calc-label">Дата заезда</div>
-          <div class="date-btn-wrap">
-            <button type="button" class="date-btn" id="dateBtnH">
-              <span id="dateBtnTextH">20 сентября 2026</span>
-              <span class="caret">▾</span>
-            </button>
-            <div class="cal-dd" id="calDDH">
-              <div class="cal-h">
-                <button type="button" id="calPrevH">‹</button>
-                <span class="cal-h-lbl" id="calMonthLabelH">Сентябрь 2026</span>
-                <button type="button" id="calNextH">›</button>
-              </div>
-              <div class="cal-w">
-                <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
-              </div>
-              <div class="cal-g" id="calGridH"></div>
-            </div>
-          </div>
-          <div class="date-weekday" id="dateWeekdayH"></div>
-        </div>
-
-        <div class="guest-row">
-          <div>
-            <div class="calc-label">Гости</div>
-            <div class="guest-note">первые 2 включены · далее +1 000 ₽ за гостя</div>
-          </div>
-          <div class="guest-stepper">
-            <button type="button" id="guestMinusH" aria-label="Меньше гостей">−</button>
-            <span class="guest-num" id="guestNumH">2</span>
-            <button type="button" id="guestPlusH" aria-label="Больше гостей">+</button>
-          </div>
-        </div>
-
-        <ul class="opt-list">
-          <li class="opt">
-            <input type="checkbox" id="optHouseH" checked>
-            <label class="opt-name" for="optHouseH">Домик</label>
-            <span class="opt-price" id="housePriceH">6 900 ₽</span>
-          </li>
-          <li class="opt">
-            <input type="checkbox" id="optChanH">
-            <label class="opt-name" for="optChanH">Банный чан<span class="opt-sub">под открытым небом</span></label>
-            <span class="opt-price">5 000 ₽</span>
-          </li>
-          <li class="opt" id="decorWrapH">
-            <input type="checkbox" id="optDecorH">
-            <label class="opt-name" for="optDecorH">Чан с украшениями<span class="opt-sub">цитрусовые украшения</span></label>
-            <span class="opt-price">+1 500 ₽</span>
-          </li>
-          <li class="opt">
-            <input type="checkbox" id="optRobesH">
-            <label class="opt-name" for="optRobesH">Халаты</label>
-            <span class="opt-price">1 000 ₽</span>
-          </li>
-        </ul>
-
-        <div class="breakdown" id="breakdownH">
-          <div class="break-row" id="brHouseH"><span>Домик · <span id="brDayH">вс–чт</span></span><span id="brHouseValH">6 900 ₽</span></div>
-          <div class="break-row hidden" id="brGuestsH"><span>Доп. гости · <span id="brGuestNH">0</span> чел.</span><span id="brGuestsValH">0 ₽</span></div>
-          <div class="break-row total"><span>Итого</span><span class="b-val" id="calcTotalBottomH">6 900 ₽</span></div>
-        </div>
-      </div>
-      <button class="btn-green btn-book" id="bookBtnH" type="button">Забронировать</button>
-    </div>
+    <div class="hero-price-line">Домик от <span class="hero-price-num">6 900</span> ₽/сут</div>
   </div>
 </section>
 
