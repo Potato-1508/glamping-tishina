@@ -92,6 +92,10 @@ header{position:absolute;left:0;right:0;top:0;z-index:10;background:transparent;
 .hf-dot{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 12px rgba(34,197,94,.6);flex:none}
 .hero-price-line{color:rgba(255,255,255,.85);font-size:20px;font-weight:600;letter-spacing:.3px;text-shadow:0 2px 16px rgba(0,0,0,.5)}
 .hero-price-num{color:#22c55e;font-size:30px;font-weight:900;letter-spacing:-.5px}
+.hero-book-row{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:28px}
+.hero-book-btn{display:inline-block;padding:11px 36px;border-radius:10px;background:#22c55e;color:#fff;font-size:16px;font-weight:700;text-decoration:none;letter-spacing:.3px;transition:background .2s,transform .15s}
+.hero-book-btn:hover{background:#1da94f;transform:translateY(-1px)}
+.hero-book-note{color:rgba(255,255,255,.7);font-size:13px;font-weight:500;letter-spacing:.3px}
 
 /* ===== pains (showcase: slider + booking) ===== */
 .pains{background:rgba(255,255,255,.4);border-top:1px solid rgba(28,25,23,.08);border-bottom:1px solid rgba(28,25,23,.08);padding:88px 0}
@@ -482,6 +486,10 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
       <span class="hf-item"><span class="hf-dot"></span>Русская баня</span>
     </div>
     <div class="hero-price-line">Домик от <span class="hero-price-num">6 900</span> ₽/сут</div>
+    <div class="hero-book-row">
+      <a class="hero-book-btn" id="bookBtnH" href="#">Забронировать</a>
+      <span class="hero-book-note">Бронирование через VK или по номеру телефона</span>
+    </div>
   </div>
 </section>
 
