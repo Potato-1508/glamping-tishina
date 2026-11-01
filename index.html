@@ -602,6 +602,90 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   </div>
 </section>
 
+<!-- ===== калькулятор ===== -->
+<section class="calc-wrap" id="calc">
+  <div class="wrap">
+    <div class="calc-card reveal" id="calcCardH">
+      <div class="calc-head">
+        <div>
+          <div class="calc-title">Рассчитайте стоимость</div>
+          <div class="calc-sub">цена зависит от дня недели</div>
+        </div>
+        <div class="calc-total" id="calcTotalH">6 900 ₽</div>
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-label">Дата заезда</div>
+        <div class="date-btn-wrap" id="dateBtnWrapH">
+          <button class="date-btn" type="button" id="dateBtnH">
+            <span id="dateBtnTextH">Выберите дату</span>
+            <span class="caret"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="7.5 5 16.5 5 12 12 7.5 19 16.5 19"/></svg></span>
+          </button>
+          <div class="cal-dd" id="calDDH">
+            <div class="cal-h">
+              <button type="button" id="calPrevH" aria-label="Предыдущий месяц">&larr;</button>
+              <span class="cal-h-lbl" id="calMonthLabelH"></span>
+              <button type="button" id="calNextH" aria-label="Следующий месяц">&rarr;</button>
+            </div>
+            <div class="cal-w">
+              <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+            </div>
+            <div class="cal-g" id="calGridH"></div>
+          </div>
+        </div>
+        <div class="date-weekday" id="dateWeekdayH"></div>
+      </div>
+
+      <div class="guest-row">
+        <div>
+          <div class="calc-label">Гости</div>
+          <div class="guest-note">первые 2 включены · далее +1 000 ₽ за гостя</div>
+        </div>
+        <div class="guest-stepper">
+          <button type="button" id="guestMinusH" aria-label="Меньше гостей">−</button>
+          <span class="guest-num" id="guestNumH">2</span>
+          <button type="button" id="guestPlusH" aria-label="Больше гостей">+</button>
+        </div>
+      </div>
+
+      <ul class="opt-list">
+        <li class="opt">
+          <input type="checkbox" id="optHouseH" checked>
+          <label class="opt-name" for="optHouseH">Домик</label>
+          <span class="opt-price" id="housePriceH">6 900 ₽</span>
+        </li>
+        <li class="opt">
+          <input type="checkbox" id="optChanH">
+          <label class="opt-name" for="optChanH">Банный чан<span class="opt-sub">под открытым небом</span></label>
+          <span class="opt-price">5 000 ₽</span>
+        </li>
+        <li class="opt" id="decorWrapH">
+          <input type="checkbox" id="optDecorH">
+          <label class="opt-name" for="optDecorH">Чан с украшениями<span class="opt-sub">цитрусовые украшения</span></label>
+          <span class="opt-price">+1 500 ₽</span>
+        </li>
+        <li class="opt">
+          <input type="checkbox" id="optRobesH">
+          <label class="opt-name" for="optRobesH">Халаты</label>
+          <span class="opt-price">1 000 ₽</span>
+        </li>
+      </ul>
+
+      <div class="breakdown" id="breakdownH">
+        <div class="break-row" id="brHouseH"><span>Домик · <span id="brDayH">вс–чт</span></span><span id="brHouseValH">6 900 ₽</span></div>
+        <div class="break-row hidden" id="brGuestsH"><span>Доп. гости · <span id="brGuestNH">0</span> чел.</span><span id="brGuestsValH">0 ₽</span></div>
+        <div class="break-row total"><span>Итого</span><span class="b-val" id="calcTotalBottomH">6 900 ₽</span></div>
+      </div>
+
+      <div style="margin-top:16px;display:flex;justify-content:center">
+        <button class="btn-green btn-book" id="bookBtnCalc" type="button">Забронировать</button>
+      </div>
+      <p class="calc-note">Обратите внимание, цены могут меняться в зависимости от дня недели. Подробнее…</p>
+    </div>
+  </div>
+</section>
+
+
 <!-- ===== что вас ждёт ===== -->
 <section class="what-waits">
   <div class="wrap">
@@ -689,89 +773,6 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
   <details><summary>Можно ли с семьёй и детьми?</summary><p>Конечно. Дома просторные, территория ухоженная и приватная — комфортно и взрослым, и детям.</p></details>
   </div>
 </div></section>
-
-<!-- ===== калькулятор ===== -->
-<section class="calc-wrap" id="calc">
-  <div class="wrap">
-    <div class="calc-card reveal" id="calcCardH">
-      <div class="calc-head">
-        <div>
-          <div class="calc-title">Рассчитайте стоимость</div>
-          <div class="calc-sub">цена зависит от дня недели</div>
-        </div>
-        <div class="calc-total" id="calcTotalH">6 900 ₽</div>
-      </div>
-
-      <div class="calc-row">
-        <div class="calc-label">Дата заезда</div>
-        <div class="date-btn-wrap" id="dateBtnWrapH">
-          <button class="date-btn" type="button" id="dateBtnH">
-            <span id="dateBtnTextH">Выберите дату</span>
-            <span class="caret"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="7.5 5 16.5 5 12 12 7.5 19 16.5 19"/></svg></span>
-          </button>
-          <div class="cal-dd" id="calDDH">
-            <div class="cal-h">
-              <button type="button" id="calPrevH" aria-label="Предыдущий месяц">&larr;</button>
-              <span class="cal-h-lbl" id="calMonthLabelH"></span>
-              <button type="button" id="calNextH" aria-label="Следующий месяц">&rarr;</button>
-            </div>
-            <div class="cal-w">
-              <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
-            </div>
-            <div class="cal-g" id="calGridH"></div>
-          </div>
-        </div>
-        <div class="date-weekday" id="dateWeekdayH"></div>
-      </div>
-
-      <div class="guest-row">
-        <div>
-          <div class="calc-label">Гости</div>
-          <div class="guest-note">первые 2 включены · далее +1 000 ₽ за гостя</div>
-        </div>
-        <div class="guest-stepper">
-          <button type="button" id="guestMinusH" aria-label="Меньше гостей">−</button>
-          <span class="guest-num" id="guestNumH">2</span>
-          <button type="button" id="guestPlusH" aria-label="Больше гостей">+</button>
-        </div>
-      </div>
-
-      <ul class="opt-list">
-        <li class="opt">
-          <input type="checkbox" id="optHouseH" checked>
-          <label class="opt-name" for="optHouseH">Домик</label>
-          <span class="opt-price" id="housePriceH">6 900 ₽</span>
-        </li>
-        <li class="opt">
-          <input type="checkbox" id="optChanH">
-          <label class="opt-name" for="optChanH">Банный чан<span class="opt-sub">под открытым небом</span></label>
-          <span class="opt-price">5 000 ₽</span>
-        </li>
-        <li class="opt" id="decorWrapH">
-          <input type="checkbox" id="optDecorH">
-          <label class="opt-name" for="optDecorH">Чан с украшениями<span class="opt-sub">цитрусовые украшения</span></label>
-          <span class="opt-price">+1 500 ₽</span>
-        </li>
-        <li class="opt">
-          <input type="checkbox" id="optRobesH">
-          <label class="opt-name" for="optRobesH">Халаты</label>
-          <span class="opt-price">1 000 ₽</span>
-        </li>
-      </ul>
-
-      <div class="breakdown" id="breakdownH">
-        <div class="break-row" id="brHouseH"><span>Домик · <span id="brDayH">вс–чт</span></span><span id="brHouseValH">6 900 ₽</span></div>
-        <div class="break-row hidden" id="brGuestsH"><span>Доп. гости · <span id="brGuestNH">0</span> чел.</span><span id="brGuestsValH">0 ₽</span></div>
-        <div class="break-row total"><span>Итого</span><span class="b-val" id="calcTotalBottomH">6 900 ₽</span></div>
-      </div>
-
-      <div style="margin-top:16px;display:flex;justify-content:center">
-        <button class="btn-green btn-book" id="bookBtnCalc" type="button">Забронировать</button>
-      </div>
-      <p class="calc-note">Обратите внимание, цены могут меняться в зависимости от дня недели. Подробнее…</p>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="wrap footer-in">
