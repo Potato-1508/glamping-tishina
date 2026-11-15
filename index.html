@@ -224,12 +224,8 @@ header{position:fixed;left:0;right:0;top:0;z-index:10;background:transparent;bor
 }
 
 /* ===== gallery tabs ===== */
-.g-tabs{display:flex;gap:8px;justify-content:center;margin:0 auto 44px;flex-wrap:wrap}
-.g-tab{padding:10px 22px;border-radius:10px;border:1.5px solid rgba(28,25,23,.12);background:rgba(255,255,255,.7);color:#57534e;font-size:15px;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit;white-space:nowrap}
-.g-tab:hover{border-color:#f97316;color:#f97316}
-.g-tab.active{background:#f97316;color:#fff;border-color:#f97316;box-shadow:0 2px 8px rgba(249,115,22,.25)}
-.g-slider-wrap{display:block}
-.g-slider-wrap:not(.active){display:none}
+.gal-heading{font-size:24px;font-weight:800;color:#1c1917;margin:0 0 20px;letter-spacing:-.3px}
+.g-slider-wrap + .g-slider-wrap{margin-top:24px}
 
 /* ===== prices (наши цены) ===== */
 .prices{padding:88px 0;background:rgba(255,255,255,.4);border-top:1px solid rgba(28,25,23,.08);border-bottom:1px solid rgba(28,25,23,.08)}
@@ -613,12 +609,8 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
     <h2 class="gallery-title reveal">Наш глэмпинг в деталях</h2>
     <p class="gallery-sub reveal">Загляните внутрь: от костровой зоны до уютной спальни — всё продумано до мелочей.</p>
 
-    <div class="g-tabs reveal">
-      <button class="g-tab active" data-target="galDom">Домики</button>
-      <button class="g-tab" data-target="galTer">Наша территория</button>
-    </div>
-
-    <div class="g-slider-wrap active" id="galDom">
+    <div class="g-slider-wrap" id="galDom">
+      <h3 class="gal-heading">Домики</h3>
       <div class="slider">
         <div class="slider-track">
           <div class="slide"><picture><source srcset="img/gallery/gal-01.webp" type="image/webp"><img loading="lazy" alt="Костровая зона — вид из окна дома" src="img/gallery/gal-01.jpg"></picture><div class="slide-cap"><b>Костровая зона</b>Вид из окна дома</div></div>
@@ -647,6 +639,7 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
     </div>
 
     <div class="g-slider-wrap" id="galTer">
+      <h3 class="gal-heading">Наша территория</h3>
       <div class="slider">
         <div class="slider-track">
           <div class="slide"><picture><source srcset="img/territory/ter-01.webp" type="image/webp"><img loading="lazy" alt="Домик и костровая зона" src="img/territory/ter-01.jpg"></picture><div class="slide-cap"><b>Территория</b>Общий вид</div></div>
@@ -978,24 +971,6 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
     });
   }, {threshold:.1, rootMargin:'0px 0px -30px 0px'});
   els.forEach(function(el){io.observe(el)});
-})();
-
-// Табы галереи (переключение между слайдерами)
-(function(){
-  var tabs = document.querySelectorAll('.g-tab');
-  tabs.forEach(function(tab){
-    tab.addEventListener('click', function(){
-      var target = tab.dataset.target;
-      if(!target) return;
-      tabs.forEach(function(t){ t.classList.remove('active'); });
-      tab.classList.add('active');
-      document.querySelectorAll('.g-slider-wrap').forEach(function(w){
-        w.classList.remove('active');
-      });
-      var wrap = document.getElementById(target);
-      if(wrap) wrap.classList.add('active');
-    });
-  });
 })();
 
 // Слайдеры (hero)
