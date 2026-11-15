@@ -223,9 +223,10 @@ header{position:fixed;left:0;right:0;top:0;z-index:10;background:transparent;bor
   .gallery-slider .slide img{height:320px}
 }
 
-/* ===== gallery tabs ===== */
-.gal-heading{font-size:24px;font-weight:800;color:#1c1917;margin:0 0 20px;letter-spacing:-.3px}
-.g-slider-wrap + .g-slider-wrap{margin-top:24px}
+/* ===== gallery grid 2x2 ===== */
+.gal-heading{font-size:20px;font-weight:800;color:#1c1917;margin:0 0 16px;letter-spacing:-.3px;text-align:center}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.gal-grid .slide img{height:260px}
 
 /* ===== prices (наши цены) ===== */
 .prices{padding:88px 0;background:rgba(255,255,255,.4);border-top:1px solid rgba(28,25,23,.08);border-bottom:1px solid rgba(28,25,23,.08)}
@@ -609,6 +610,7 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
     <h2 class="gallery-title reveal">Наш глэмпинг в деталях</h2>
     <p class="gallery-sub reveal">Загляните внутрь: от костровой зоны до уютной спальни — всё продумано до мелочей.</p>
 
+    <div class="gal-grid">
     <div class="g-slider-wrap" id="galDom">
       <h3 class="gal-heading">Домики</h3>
       <div class="slider">
@@ -658,6 +660,7 @@ footer{background:rgba(28,25,23,.92);color:#a8a29e;padding:28px 0;font-size:14px
         <button class="slider-arrow next" type="button" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9.5 5.5 16 12 9.5 18.5"/></svg></button>
         <div class="slider-dots"></div>
       </div>
+    </div>
     </div>
   </div>
 </section>
